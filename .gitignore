@@ -1,0 +1,14 @@
+/target
+/dist
+rocket-brain.json
+
+# Personal runtime state (never publish)
+/rocket-llm.json
+/rocket_memory.json
+/codex_character.json
+/rocket_chat_history.json
+/rocket_detect.json
+/rocket_theme.json
+/rocket-chronicle.md
+/codex_chronicle.md
+/.zcode

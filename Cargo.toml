@@ -1,0 +1,32 @@
+[package]
+name = "rocket-ai"
+version = "0.1.0"
+edition = "2021"
+description = "ROCKET — a personal gaming AI companion built with Rust + Iced desktop GUI framework"
+
+[dependencies]
+iced = { version = "0.14", default-features = false, features = [
+    "wgpu",
+    "tiny-skia",
+    "canvas",
+    "image",
+    "fira-sans",
+    "crisp",
+    "web-colors",
+    "thread-pool",
+    "tokio",
+] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rand = "0.8"
+chrono = { version = "0.4", default-features = false, features = ["clock"] }
+reqwest = { version = "0.11", features = ["json"] }
+tokio = { version = "1", features = ["full"] }
+rfd = "0.17.2"
+
+[build-dependencies]
+winresource = "0.1"
+
+[profile.release]
+opt-level = "s"
+lto = "thin"

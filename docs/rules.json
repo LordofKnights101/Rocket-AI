@@ -1,0 +1,3620 @@
+{
+  "achievements": {
+    "achievements": [
+      {
+        "description": "Have your first conversation with ROCKET",
+        "icon": "💬",
+        "id": "first_conversation",
+        "rarity": "Common",
+        "title": "First Conversation",
+        "unlocked": false,
+        "unlocked_date": null
+      },
+      {
+        "description": "Answer 10 questions correctly",
+        "icon": "🚀",
+        "id": "quick_learner",
+        "rarity": "Common",
+        "title": "Quick Learner",
+        "unlocked": false,
+        "unlocked_date": null
+      },
+      {
+        "description": "Have 50 conversations with ROCKET",
+        "icon": "🗣️",
+        "id": "conversation_master",
+        "rarity": "Rare",
+        "title": "Conversation Master",
+        "unlocked": false,
+        "unlocked_date": null
+      },
+      {
+        "description": "Maintain a 7-day learning streak",
+        "icon": "🔥",
+        "id": "streak_warrior",
+        "rarity": "Rare",
+        "title": "Streak Warrior",
+        "unlocked": false,
+        "unlocked_date": null
+      },
+      {
+        "description": "Ask about 5 different topics",
+        "icon": "🔍",
+        "id": "knowledge_seeker",
+        "rarity": "Common",
+        "title": "Knowledge Seeker",
+        "unlocked": false,
+        "unlocked_date": null
+      },
+      {
+        "description": "Reach level 10",
+        "icon": "🚀",
+        "id": "rocket_fanatic",
+        "rarity": "Epic",
+        "title": "ROCKET Fanatic",
+        "unlocked": false,
+        "unlocked_date": null
+      },
+      {
+        "description": "Use ROCKET within the first week",
+        "icon": "⭐",
+        "id": "early_adopter",
+        "rarity": "Legendary",
+        "title": "Early Adopter",
+        "unlocked": false,
+        "unlocked_date": null
+      }
+    ],
+    "count": 7,
+    "source": "memory.rs get_default_achievements"
+  },
+  "answer_pipeline": {
+    "correction_prefixes": [
+      "wrong:",
+      "wrong ",
+      "correction:",
+      "correction ",
+      "thats wrong"
+    ],
+    "correction_semantics": "the correction overwrites the memory slot for the last answered question; the corrected answer is then served at step 5, before built-in facts, permanently (persisted in rocket-brain.json)",
+    "dispatch_order": [
+      {
+        "handler": "ai.rs Brain::try_correction",
+        "rule": "if the message starts with a correction prefix, it permanently fixes the last answered fact and returns immediately",
+        "step": 1
+      },
+      {
+        "handler": "ai.rs Brain::follow_up",
+        "rule": "exact match on more/another/next/another tip/next tip/tell me more/more tips fires another tip on the previous topic",
+        "step": 2
+      },
+      {
+        "handler": "ai.rs Brain::smalltalk",
+        "rule": "greetings, jokes, thanks, identity questions answered conversationally",
+        "step": 3
+      },
+      {
+        "handler": "ai.rs Brain::try_captures",
+        "rule": "personal facts are learned: my name is / my favorite game is / add game <name> / skill level / loadout context",
+        "step": 4
+      },
+      {
+        "handler": "ai.rs Brain::recall_learned",
+        "rule": "taught + corrected answers matched FIRST over the knowledge base",
+        "step": 5
+      },
+      {
+        "handler": "ai.rs Brain::knowledge",
+        "rule": "curated knowledge pack of the selected game, then universal item brain, then generic topic brain; if nothing matches Rocket asks to be taught",
+        "step": 6
+      }
+    ],
+    "edge_cases": [
+      "a normal question that merely contains the word 'wrong' is NOT treated as a correction (tested: normal_questions_containing_wrong_are_not_corrections)",
+      "'wrong:' with no prior answered question explains how corrections work instead of failing (tested: correction_without_question_explains)",
+      "corrections always beat learned answers at recall (tested: corrections_overwrite_last_answer)"
+    ],
+    "followup_triggers": [
+      "more",
+      "another",
+      "next",
+      "another tip",
+      "next tip",
+      "tell me more",
+      "more tips"
+    ],
+    "vibe_command_prefixes": [
+      "be ",
+      "act ",
+      "go ",
+      "switch to ",
+      "turn on ",
+      "vibe ",
+      "set vibe to "
+    ]
+  },
+  "codex": {
+    "board_capacity": 6,
+    "caps": {
+      "actions": 200,
+      "chronicle": 60,
+      "desk_history": 120,
+      "entries_seen_per_realm": 64
+    },
+    "chronicle_file": "codex_chronicle.md",
+    "desk_commands": [
+      "help",
+      "board",
+      "set me a trial",
+      "audit <game>",
+      "gaps <game>",
+      "compare <a> and <b>",
+      "where stand I",
+      "chronicle",
+      "log",
+      "interjections on/off",
+      "clear the desk"
+    ],
+    "file": "codex_character.json",
+    "quest_rewards": {
+      "ComparativeScholarship": [
+        90,
+        10
+      ],
+      "EdgeCaseExpedition": [
+        80,
+        8
+      ],
+      "LoreMastery": [
+        60,
+        5
+      ],
+      "Restoration": [
+        100,
+        12
+      ],
+      "TrialByOrdeal": [
+        120,
+        15
+      ]
+    },
+    "quest_types": [
+      "LoreMastery",
+      "EdgeCaseExpedition",
+      "ComparativeScholarship",
+      "Restoration",
+      "TrialByOrdeal"
+    ],
+    "ranks": [
+      {
+        "min_level": 1,
+        "rank": "Novice Scribe",
+        "sigil": "🪶"
+      },
+      {
+        "min_level": 5,
+        "rank": "Ink Apprentice",
+        "sigil": "🖋️"
+      },
+      {
+        "min_level": 10,
+        "rank": "Journeyman Scribe",
+        "sigil": "📜"
+      },
+      {
+        "min_level": 15,
+        "rank": "Adept Scholar",
+        "sigil": "🕯️"
+      },
+      {
+        "min_level": 25,
+        "rank": "Loremaster",
+        "sigil": "📖"
+      },
+      {
+        "min_level": 35,
+        "rank": "Master Archivist",
+        "sigil": "🗝️"
+      },
+      {
+        "min_level": 45,
+        "rank": "Grand Archivist",
+        "sigil": "👑"
+      }
+    ],
+    "realm_tiers": [
+      {
+        "lore_points": 0,
+        "tier": "Uncharted"
+      },
+      {
+        "lore_points": 10,
+        "tier": "Charted"
+      },
+      {
+        "lore_points": 25,
+        "tier": "Studied"
+      },
+      {
+        "lore_points": 50,
+        "tier": "Examined"
+      },
+      {
+        "lore_points": 100,
+        "tier": "Mastered"
+      },
+      {
+        "lore_points": 200,
+        "tier": "Sanctified"
+      }
+    ],
+    "tree_atelier": {
+      "archetypes": [
+        {
+          "archetype": "Linear Mastery Path",
+          "rank_gate": 0
+        },
+        {
+          "archetype": "Branching Decision Web",
+          "rank_gate": 1
+        },
+        {
+          "archetype": "Escalating Ordeal Ladder",
+          "rank_gate": 3
+        },
+        {
+          "archetype": "Comparative Scholarship Network",
+          "rank_gate": 2
+        },
+        {
+          "archetype": "Restoration & Gap-Filling Campaign",
+          "rank_gate": 2
+        },
+        {
+          "archetype": "Timed Trial Sequence",
+          "rank_gate": 3
+        },
+        {
+          "archetype": "Narrative Chronicle with Checkpoints",
+          "rank_gate": 1
+        },
+        {
+          "archetype": "Edge-Case Gauntlet",
+          "rank_gate": 4
+        }
+      ],
+      "completion": "node criteria are event counters (grounded answers per discipline, teach events, ordeal runs, comparative realm answers); sealing a node pays its XP through the global economy; sealing all required nodes pays a 10% tree bonus",
+      "desk_commands": [
+        "create tree [archetype] for <game> [and <game2>] [depth N] [breadth N] [gentle|steep] [flavor: …] [named …]",
+        "trees",
+        "open tree <name>",
+        "restore tree <name>",
+        "minimize tree [name]",
+        "rename tree <name> to <new>",
+        "duplicate tree <name>",
+        "archive tree <name>",
+        "destroy tree <name>",
+        "expand tree <name> depth N",
+        "rebalance tree <name> [to N]",
+        "note tree <name>: <text>",
+        "validate trees",
+        "repair tree <name>",
+        "tree report <name>",
+        "outline tree <name>",
+        "reorder tree <name> up|down",
+        "confirm saved",
+        "(Create Tree button → guided interrogation: game → shape → generated graph)"
+      ],
+      "feature": "CREATE TREE — multi-instance quest-tree authoring environment",
+      "graph_ui": "interactive canvas: circular nodes (❓ available / ✓ sealed / · locked), automatic tier-column layout, edges glow+pulse when their source seals, click-to-select with synchronized detail panel and Mark Done (frontier-only; locked nodes explain prerequisites in character)",
+      "node_traceability": "every node's grimoire_sections are validated against the live knowledge base; stale nodes are flagged and repairable"
+    },
+    "version": 1,
+    "xp_model": {
+      "depth_6_plus_words": {
+        "lore": 0,
+        "xp": 3
+      },
+      "grounded_answer": {
+        "lore": 1,
+        "xp": 0
+      },
+      "note": "bonuses are added on top of the standard conversation XP (memory.rs)",
+      "novelty_first_tag_touch": {
+        "lore": 2,
+        "xp": 5
+      }
+    }
+  },
+  "daily_quests": {
+    "completion_line": "✅ Quest complete: <title> (+<xp> XP)",
+    "kind_triggers": {
+      "ask": "every user question (main.rs)",
+      "chat": "conversations (main.rs)",
+      "explore": "switching to a different game in one day",
+      "item": "asking how to get any item/gear",
+      "kb": "opening the Knowledge Base page",
+      "teach": "teaching a fact (main.rs)"
+    },
+    "kinds": [
+      "ask",
+      "chat",
+      "teach",
+      "explore",
+      "item",
+      "kb"
+    ],
+    "pool": [
+      {
+        "kind": "ask",
+        "target": 5,
+        "title": "Ask Rocket 5 questions",
+        "xp_reward": 50
+      },
+      {
+        "kind": "ask",
+        "target": 3,
+        "title": "Ask Rocket 3 questions",
+        "xp_reward": 30
+      },
+      {
+        "kind": "chat",
+        "target": 10,
+        "title": "Have 10 conversations with Rocket",
+        "xp_reward": 45
+      },
+      {
+        "kind": "teach",
+        "target": 1,
+        "title": "Teach Rocket something new",
+        "xp_reward": 60
+      },
+      {
+        "kind": "explore",
+        "target": 2,
+        "title": "Switch between 2 different games",
+        "xp_reward": 40
+      },
+      {
+        "kind": "item",
+        "target": 1,
+        "title": "Ask how to get any item or gear",
+        "xp_reward": 30
+      },
+      {
+        "kind": "kb",
+        "target": 1,
+        "title": "Open the Knowledge Base",
+        "xp_reward": 25
+      }
+    ],
+    "progress_rule": "quest_progress(kind, n) advances every active quest of that kind; progress clamps at target; completion pays xp_reward immediately via add_experience",
+    "reroll_rule": "rerolled when the stored quest_day differs from today's local date (YYYY-MM-DD); games_today is cleared on reroll",
+    "roll_algorithm": "Fisher-Yates shuffle of the full pool, take first 3 (distinct by construction)",
+    "rolled_per_day": 3,
+    "source": "memory.rs QUEST_POOL / ensure_daily_quests / quest_progress"
+  },
+  "decorations": {
+    "count": 12,
+    "decorations": [
+      {
+        "category": "Frame",
+        "description": "A simple profile frame",
+        "equipped": true,
+        "icon": "⬜",
+        "id": "basic_frame",
+        "name": "Basic Frame",
+        "rarity": "Basic",
+        "unlocked": true
+      },
+      {
+        "category": "Background",
+        "description": "The standard profile background",
+        "equipped": true,
+        "icon": "🔵",
+        "id": "default_background",
+        "name": "Default Background",
+        "rarity": "Basic",
+        "unlocked": true
+      },
+      {
+        "category": "Frame",
+        "description": "A stylish blue profile frame",
+        "equipped": false,
+        "icon": "🔷",
+        "id": "blue_frame",
+        "name": "Blue Frame",
+        "rarity": "Common",
+        "unlocked": false
+      },
+      {
+        "category": "Background",
+        "description": "A nature-inspired green background",
+        "equipped": false,
+        "icon": "🟢",
+        "id": "green_background",
+        "name": "Green Background",
+        "rarity": "Common",
+        "unlocked": false
+      },
+      {
+        "category": "Icon",
+        "description": "A shining star profile icon",
+        "equipped": false,
+        "icon": "⭐",
+        "id": "star_icon",
+        "name": "Star Icon",
+        "rarity": "Common",
+        "unlocked": false
+      },
+      {
+        "category": "Frame",
+        "description": "A luxurious gold profile frame",
+        "equipped": false,
+        "icon": "🟨",
+        "id": "gold_frame",
+        "name": "Gold Frame",
+        "rarity": "Rare",
+        "unlocked": false
+      },
+      {
+        "category": "Background",
+        "description": "A beautiful space galaxy background",
+        "equipped": false,
+        "icon": "🌌",
+        "id": "galaxy_background",
+        "name": "Galaxy Background",
+        "rarity": "Rare",
+        "unlocked": false
+      },
+      {
+        "category": "Icon",
+        "description": "A ROCKET-themed profile icon",
+        "equipped": false,
+        "icon": "🚀",
+        "id": "rocket_icon",
+        "name": "Rocket Icon",
+        "rarity": "Rare",
+        "unlocked": false
+      },
+      {
+        "category": "Frame",
+        "description": "A colorful rainbow profile frame",
+        "equipped": false,
+        "icon": "🌈",
+        "id": "rainbow_frame",
+        "name": "Rainbow Frame",
+        "rarity": "Epic",
+        "unlocked": false
+      },
+      {
+        "category": "Background",
+        "description": "A futuristic neon background",
+        "equipped": false,
+        "icon": "💫",
+        "id": "neon_background",
+        "name": "Neon Background",
+        "rarity": "Epic",
+        "unlocked": false
+      },
+      {
+        "category": "Frame",
+        "description": "An epic legendary profile frame",
+        "equipped": false,
+        "icon": "💎",
+        "id": "legendary_frame",
+        "name": "Legendary Frame",
+        "rarity": "Legendary",
+        "unlocked": false
+      },
+      {
+        "category": "Background",
+        "description": "A mystical cosmic background",
+        "equipped": false,
+        "icon": "🌠",
+        "id": "cosmic_background",
+        "name": "Cosmic Background",
+        "rarity": "Legendary",
+        "unlocked": false
+      }
+    ],
+    "source": "memory.rs get_default_decorations"
+  },
+  "game_detection": {
+    "enabled_by_default": true,
+    "platform": "Windows (tasklist CSV); other platforms return none and manual selection still works",
+    "poll_interval_seconds": 6,
+    "process_count": 46,
+    "processes": [
+      {
+        "game": "Roblox",
+        "process": "robloxplayerbeta.exe"
+      },
+      {
+        "game": "Minecraft",
+        "process": "minecraftlauncher.exe"
+      },
+      {
+        "game": "Minecraft",
+        "process": "minecraft.exe"
+      },
+      {
+        "game": "Valorant",
+        "process": "valorant-win64.exe"
+      },
+      {
+        "game": "Valorant",
+        "process": "valorant.exe"
+      },
+      {
+        "game": "Counter-Strike 2",
+        "process": "cs2.exe"
+      },
+      {
+        "game": "Fortnite",
+        "process": "fortniteclient-win64-shipping.exe"
+      },
+      {
+        "game": "Call of Duty",
+        "process": "cod.exe"
+      },
+      {
+        "game": "Call of Duty",
+        "process": "call of duty.exe"
+      },
+      {
+        "game": "Apex Legends",
+        "process": "apexlegends.exe"
+      },
+      {
+        "game": "PUBG",
+        "process": "tslgame.exe"
+      },
+      {
+        "game": "Rocket League",
+        "process": "rocketleague.exe"
+      },
+      {
+        "game": "The Sims",
+        "process": "thesims4.exe"
+      },
+      {
+        "game": "Stardew Valley",
+        "process": "stardew valley.exe"
+      },
+      {
+        "game": "Skyrim",
+        "process": "skyrimse.exe"
+      },
+      {
+        "game": "Skyrim",
+        "process": "skyrim.exe"
+      },
+      {
+        "game": "GTA Series",
+        "process": "gta5.exe"
+      },
+      {
+        "game": "GTA Series",
+        "process": "gta5enhanced.exe"
+      },
+      {
+        "game": "Among Us",
+        "process": "among us.exe"
+      },
+      {
+        "game": "Fall Guys",
+        "process": "fallguys_client.exe"
+      },
+      {
+        "game": "World of Warcraft",
+        "process": "wow.exe"
+      },
+      {
+        "game": "World of Warcraft",
+        "process": "wowclassic.exe"
+      },
+      {
+        "game": "Dota 2",
+        "process": "dota2.exe"
+      },
+      {
+        "game": "League of Legends",
+        "process": "league of legends.exe"
+      },
+      {
+        "game": "League of Legends",
+        "process": "leagueclient.exe"
+      },
+      {
+        "game": "Elden Ring",
+        "process": "eldenring.exe"
+      },
+      {
+        "game": "The Witcher 3",
+        "process": "witcher3.exe"
+      },
+      {
+        "game": "Valheim",
+        "process": "valheim.exe"
+      },
+      {
+        "game": "Terraria",
+        "process": "terraria.exe"
+      },
+      {
+        "game": "Rust",
+        "process": "rustclient.exe"
+      },
+      {
+        "game": "ARK: Survival Evolved",
+        "process": "shootergame.exe"
+      },
+      {
+        "game": "Overwatch 2",
+        "process": "overwatch.exe"
+      },
+      {
+        "game": "Destiny 2",
+        "process": "destiny2.exe"
+      },
+      {
+        "game": "Halo Infinite",
+        "process": "haloinfinite.exe"
+      },
+      {
+        "game": "Cyberpunk 2077",
+        "process": "cyberpunk2077.exe"
+      },
+      {
+        "game": "Baldur's Gate 3",
+        "process": "bg3_dx11.exe"
+      },
+      {
+        "game": "Baldur's Gate 3",
+        "process": "bg3.exe"
+      },
+      {
+        "game": "Hogwarts Legacy",
+        "process": "hogwartslegacy.exe"
+      },
+      {
+        "game": "Palworld",
+        "process": "palworld-win64-shipping.exe"
+      },
+      {
+        "game": "Palworld",
+        "process": "palworld.exe"
+      },
+      {
+        "game": "Phasmophobia",
+        "process": "phasmophobia.exe"
+      },
+      {
+        "game": "Sekiro",
+        "process": "sekiro.exe"
+      },
+      {
+        "game": "Red Dead Redemption 2",
+        "process": "rdr2.exe"
+      },
+      {
+        "game": "Monster Hunter World",
+        "process": "monsterhunterworld.exe"
+      },
+      {
+        "game": "Final Fantasy XIV",
+        "process": "ffxiv_dx11.exe"
+      },
+      {
+        "game": "Final Fantasy XIV",
+        "process": "ffxiv.exe"
+      }
+    ],
+    "source": "detect.rs GAME_PROCESSES + main.rs subscription (6s timer)",
+    "toggle_storage": "rocket_detect.json {\"enabled\": bool}"
+  },
+  "knowledge_base": {
+    "answer_sources": {
+      "CrossGame": "another game's pack — only in General Chat mode",
+      "Game": "curated guide from the currently selected game's pack (+ its first tag)",
+      "UniversalItem": "universal 'how to get X' brain for any item in any game"
+    },
+    "categories": [
+      "🎯 Strategy",
+      "⚙️ Mechanics",
+      "🗡️ Items & Gear",
+      "👥 Characters & Roles",
+      "📈 Progression",
+      "📖 Glossary"
+    ],
+    "entry_shape": {
+      "category": "Category",
+      "content": "&str",
+      "game": "GameType",
+      "tags": "&[&str]",
+      "title": "&str"
+    },
+    "games_with_packs": 44,
+    "per_category_totals": {
+      "⚙️ Mechanics": 35,
+      "🎯 Strategy": 37,
+      "👥 Characters & Roles": 6,
+      "📈 Progression": 18,
+      "📖 Glossary": 1,
+      "🗡️ Items & Gear": 33
+    },
+    "per_game": [
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "7 Days to Die"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Age of Empires IV"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Alien: Isolation"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 1,
+          "🎯 Strategy": 2
+        },
+        "entries": 3,
+        "game": "Among Us"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Animal Crossing"
+      },
+      {
+        "by_category": {
+          "🎯 Strategy": 2,
+          "👥 Characters & Roles": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 4,
+        "game": "Apex Legends"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 2,
+        "game": "ARK: Survival Evolved"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Assassin's Creed Valhalla"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Astroneer"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Balatro"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 2,
+        "game": "Baldur's Gate 3"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Battlefield 2042"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Black Myth: Wukong"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Bloodborne"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Borderlands 3"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Brawl Stars"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 1,
+          "🎯 Strategy": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 3,
+        "game": "Call of Duty"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Celeste"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Cities: Skylines"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Civilization VI"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Clash of Clans"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Clash Royale"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 2,
+          "🎯 Strategy": 3
+        },
+        "entries": 5,
+        "game": "Counter-Strike 2"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Cuphead"
+      },
+      {
+        "by_category": {
+          "📈 Progression": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 2,
+        "game": "Cyberpunk 2077"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Dark Souls III"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Dave the Diver"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Days Gone"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Dead Cells"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Dead Space"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Death Stranding"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 2,
+        "game": "Destiny 2"
+      },
+      {
+        "by_category": {
+          "📈 Progression": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 2,
+        "game": "Diablo IV"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Divinity: Original Sin 2"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Don't Starve"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Doom Eternal"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 1,
+          "🎯 Strategy": 1,
+          "👥 Characters & Roles": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 4,
+        "game": "Dota 2"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Dragon Ball FighterZ"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "EA Sports FC 24"
+      },
+      {
+        "by_category": {
+          "🎯 Strategy": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 2,
+        "game": "Elden Ring"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Elder Scrolls Online"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Escape from Tarkov"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Euro Truck Simulator 2"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "F1 23"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Factorio"
+      },
+      {
+        "by_category": {
+          "🎯 Strategy": 2
+        },
+        "entries": 2,
+        "game": "Fall Guys"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Fallout 4"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Fallout 76"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Far Cry 5"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Farming Simulator 22"
+      },
+      {
+        "by_category": {
+          "📈 Progression": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 2,
+        "game": "Final Fantasy XIV"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Five Nights at Freddy's"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Football Manager"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 1,
+          "🎯 Strategy": 3,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 5,
+        "game": "Fortnite"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Forza Horizon 5"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Gang Beasts"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Gartic Phone"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Gears of War"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 1,
+          "🎯 Strategy": 2,
+          "📈 Progression": 1
+        },
+        "entries": 4,
+        "game": "General Chat"
+      },
+      {
+        "by_category": {
+          "📈 Progression": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 2,
+        "game": "Genshin Impact"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Ghost of Tsushima"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Golf With Your Friends"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Gran Turismo 7"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Grounded"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 1,
+          "🎯 Strategy": 1,
+          "📈 Progression": 1
+        },
+        "entries": 3,
+        "game": "GTA Series"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Guild Wars 2"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Guilty Gear Strive"
+      },
+      {
+        "by_category": {
+          "🎯 Strategy": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 2,
+        "game": "Hades"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Halo Infinite"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Helldivers 2"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Heroes of the Storm"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Hogwarts Legacy"
+      },
+      {
+        "by_category": {
+          "🎯 Strategy": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 2,
+        "game": "Hollow Knight"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Honkai: Star Rail"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Horizon Zero Dawn"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "House Flipper"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Human: Fall Flat"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Hunt: Showdown"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "It Takes Two"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Jackbox Party Pack"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Journey"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Kerbal Space Program"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Kingdom Come: Deliverance"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 2,
+          "🎯 Strategy": 3,
+          "👥 Characters & Roles": 1
+        },
+        "entries": 6,
+        "game": "League of Legends"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "LEGO Fortnite"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 2,
+        "game": "Lethal Company"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Lost Ark"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Madden NFL 24"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Mario Kart 8 Deluxe"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Mario Party Superstars"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Marvel Rivals"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Mass Effect"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Microsoft Flight Simulator"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 2,
+          "🎯 Strategy": 1,
+          "📈 Progression": 1,
+          "🗡️ Items & Gear": 3
+        },
+        "entries": 7,
+        "game": "Minecraft"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Minecraft Dungeons"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "MLB The Show"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Mobile Legends"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Monster Hunter Wilds"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 2,
+        "game": "Monster Hunter World"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Mortal Kombat 1"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Naraka: Bladepoint"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "NBA 2K24"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Need for Speed Heat"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "New World"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 2,
+        "game": "No Man's Sky"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Oblivion"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Old School RuneScape"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Ori and the Will of the Wisps"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Outlast"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 1,
+          "🎯 Strategy": 1
+        },
+        "entries": 2,
+        "game": "Overwatch 2"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Paladins"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 2,
+        "game": "Palworld"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Path of Exile"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Persona 5 Royal"
+      },
+      {
+        "by_category": {
+          "🎯 Strategy": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 2,
+        "game": "Phasmophobia"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Planet Coaster"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Pokémon GO"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Pokémon Scarlet/Violet"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Poppy Playtime"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Portal 2"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "PowerWash Simulator"
+      },
+      {
+        "by_category": {
+          "🎯 Strategy": 2,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 3,
+        "game": "PUBG"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Pummel Party"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Raft"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Rainbow Six Siege"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 2,
+        "game": "Red Dead Redemption 2"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Resident Evil 4"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 1,
+          "🎯 Strategy": 1,
+          "📈 Progression": 2
+        },
+        "entries": 4,
+        "game": "Roblox"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 2,
+          "🎯 Strategy": 1,
+          "📈 Progression": 1
+        },
+        "entries": 4,
+        "game": "Rocket League"
+      },
+      {
+        "by_category": {
+          "🎯 Strategy": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 2,
+        "game": "Rust"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Satisfactory"
+      },
+      {
+        "by_category": {
+          "🎯 Strategy": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 2,
+        "game": "Sea of Thieves"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Sekiro"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 3,
+          "👥 Characters & Roles": 1,
+          "📈 Progression": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 6,
+        "game": "Skyrim"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Slay the Spire"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Smite"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Sons of the Forest"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Splatoon 3"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Splitgate"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "StarCraft II"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 1,
+          "🎯 Strategy": 1,
+          "📈 Progression": 2
+        },
+        "entries": 4,
+        "game": "Stardew Valley"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Starfield"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Street Fighter 6"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Stumble Guys"
+      },
+      {
+        "by_category": {
+          "📈 Progression": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 2,
+        "game": "Subnautica"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Super Smash Bros. Ultimate"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Tabletop Simulator"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Team Fortress 2"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Tekken 8"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 2,
+        "game": "Terraria"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "The Finals"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "The Forest"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 1,
+          "🎯 Strategy": 1,
+          "📈 Progression": 1
+        },
+        "entries": 3,
+        "game": "The Sims"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 2,
+        "game": "The Witcher 3"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Titanfall 2"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Total War: WARHAMMER III"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Trackmania"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "UFC 5"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Undertale"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 2,
+        "game": "Valheim"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 2,
+          "🎯 Strategy": 1,
+          "👥 Characters & Roles": 1,
+          "📖 Glossary": 1
+        },
+        "entries": 5,
+        "game": "Valorant"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Vampire Survivors"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Warcraft III"
+      },
+      {
+        "by_category": {
+          "📈 Progression": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 2,
+        "game": "Warframe"
+      },
+      {
+        "by_category": {},
+        "entries": 0,
+        "game": "Watch Dogs 2"
+      },
+      {
+        "by_category": {
+          "🎯 Strategy": 1,
+          "👥 Characters & Roles": 1,
+          "📈 Progression": 2
+        },
+        "entries": 4,
+        "game": "World of Warcraft"
+      },
+      {
+        "by_category": {
+          "⚙️ Mechanics": 1,
+          "🎯 Strategy": 1,
+          "🗡️ Items & Gear": 1
+        },
+        "entries": 3,
+        "game": "Zelda Series"
+      }
+    ],
+    "search_rules": [
+      "stopword-filtered token scoring (see knowledge.rs STOPWORDS)",
+      "substring match counts; a token also matches when it is a prefix of the tag or the tag is a prefix of the token and BOTH sides are >= 4 chars (so 'netherite' hits 'nether', 'diamonds' hits 'diamond')",
+      "search(game, q, limit) only returns that game's entries; search_any(q, limit) crosses games and is used in General Chat mode only",
+      "a selected game NEVER returns another game's pack entries (tested in game_qa)"
+    ],
+    "source": "knowledge.rs + live KnowledgeBase::entries_for_game",
+    "total_entries": 130
+  },
+  "leveling": {
+    "badges": [
+      {
+        "badge": "FirstConversation",
+        "label": "💬 First Chat",
+        "unlock": "1st question answered"
+      },
+      {
+        "badge": "QuickLearner",
+        "label": "⚡ Quick Learner",
+        "unlock": "10 questions answered"
+      },
+      {
+        "badge": "KnowledgeSeeker",
+        "label": "🔍 Knowledge Seeker",
+        "unlock": "first teaching event"
+      },
+      {
+        "badge": "FollowUpExpert",
+        "label": "🔁 Follow-up Pro",
+        "unlock": "5 follow-up questions"
+      },
+      {
+        "badge": "StreakWarrior(7|30)",
+        "label": "🔥 Streak x7 / x30",
+        "unlock": "7- or 30-day streak"
+      },
+      {
+        "badge": "SkillExplorer",
+        "label": "🧭 Skill Explorer",
+        "unlock": "first mastered topic"
+      },
+      {
+        "badge": "ExpertGamer",
+        "label": "🎮 Expert Gamer",
+        "unlock": "reach level 5"
+      },
+      {
+        "badge": "GameMaster",
+        "label": "👑 Game Master",
+        "unlock": "play 3 distinct games"
+      },
+      {
+        "badge": "RocketFanatic",
+        "label": "🚀 ROCKET Fanatic",
+        "unlock": "reach level 10 (achievement)"
+      },
+      {
+        "badge": "CreativeBuilder",
+        "label": "🏗️ Builder",
+        "unlock": "reach level 25"
+      },
+      {
+        "badge": "ConversationMaster(n)",
+        "label": "🗣️ Chatter xN",
+        "unlock": "conversation milestones"
+      },
+      {
+        "badge": "EarlyAdopter",
+        "label": "⭐ Early Adopter",
+        "unlock": "special (reserved)"
+      },
+      {
+        "badge": "HelpfulAssistant",
+        "label": "🤝 Helper",
+        "unlock": "special (reserved)"
+      },
+      {
+        "badge": "MinecraftChampion",
+        "label": "⛏️ MC Champion",
+        "unlock": "special (reserved)"
+      },
+      {
+        "badge": "RobloxExpert",
+        "label": "🧱 Roblox Expert",
+        "unlock": "special (reserved)"
+      }
+    ],
+    "coins_rule": {
+      "invariant": "coins always equal total_xp_earned",
+      "note": "spending coins never reduces level or level progress; XP is never consumed",
+      "source": "memory.rs LevelingData::add_experience + test coins mirror total xp"
+    },
+    "max_level": 50,
+    "rank_bands": [
+      {
+        "levels": "1-4",
+        "rank": "🌱 Rookie"
+      },
+      {
+        "levels": "5-9",
+        "rank": "🛰️ Cadet"
+      },
+      {
+        "levels": "10-14",
+        "rank": "🚀 Pilot"
+      },
+      {
+        "levels": "15-19",
+        "rank": "✈️ Ace Pilot"
+      },
+      {
+        "levels": "20-24",
+        "rank": "🛡️ Guardian"
+      },
+      {
+        "levels": "25-29",
+        "rank": "⚔️ Veteran"
+      },
+      {
+        "levels": "30-34",
+        "rank": "🏆 Elite"
+      },
+      {
+        "levels": "35-39",
+        "rank": "👑 Champion"
+      },
+      {
+        "levels": "40-44",
+        "rank": "🌟 Legend"
+      },
+      {
+        "levels": "45+",
+        "rank": "💫 Mythic"
+      }
+    ],
+    "rank_by_level": {
+      "1": {
+        "rank": "🌱 Rookie",
+        "xp_required": 0
+      },
+      "10": {
+        "rank": "🚀 Pilot",
+        "xp_required": 4000
+      },
+      "11": {
+        "rank": "🚀 Pilot",
+        "xp_required": 5000
+      },
+      "12": {
+        "rank": "🚀 Pilot",
+        "xp_required": 6000
+      },
+      "13": {
+        "rank": "🚀 Pilot",
+        "xp_required": 7500
+      },
+      "14": {
+        "rank": "🚀 Pilot",
+        "xp_required": 9000
+      },
+      "15": {
+        "rank": "✈️ Ace Pilot",
+        "xp_required": 11000
+      },
+      "16": {
+        "rank": "✈️ Ace Pilot",
+        "xp_required": 13000
+      },
+      "17": {
+        "rank": "✈️ Ace Pilot",
+        "xp_required": 15000
+      },
+      "18": {
+        "rank": "✈️ Ace Pilot",
+        "xp_required": 17500
+      },
+      "19": {
+        "rank": "✈️ Ace Pilot",
+        "xp_required": 20000
+      },
+      "2": {
+        "rank": "🌱 Rookie",
+        "xp_required": 100
+      },
+      "20": {
+        "rank": "🛡️ Guardian",
+        "xp_required": 23000
+      },
+      "21": {
+        "rank": "🛡️ Guardian",
+        "xp_required": 26000
+      },
+      "22": {
+        "rank": "🛡️ Guardian",
+        "xp_required": 29000
+      },
+      "23": {
+        "rank": "🛡️ Guardian",
+        "xp_required": 32000
+      },
+      "24": {
+        "rank": "🛡️ Guardian",
+        "xp_required": 35000
+      },
+      "25": {
+        "rank": "⚔️ Veteran",
+        "xp_required": 38000
+      },
+      "26": {
+        "rank": "⚔️ Veteran",
+        "xp_required": 41000
+      },
+      "27": {
+        "rank": "⚔️ Veteran",
+        "xp_required": 44000
+      },
+      "28": {
+        "rank": "⚔️ Veteran",
+        "xp_required": 47000
+      },
+      "29": {
+        "rank": "⚔️ Veteran",
+        "xp_required": 50000
+      },
+      "3": {
+        "rank": "🌱 Rookie",
+        "xp_required": 250
+      },
+      "30": {
+        "rank": "🏆 Elite",
+        "xp_required": 53000
+      },
+      "31": {
+        "rank": "🏆 Elite",
+        "xp_required": 56000
+      },
+      "32": {
+        "rank": "🏆 Elite",
+        "xp_required": 59000
+      },
+      "33": {
+        "rank": "🏆 Elite",
+        "xp_required": 62000
+      },
+      "34": {
+        "rank": "🏆 Elite",
+        "xp_required": 65000
+      },
+      "35": {
+        "rank": "👑 Champion",
+        "xp_required": 68000
+      },
+      "36": {
+        "rank": "👑 Champion",
+        "xp_required": 71000
+      },
+      "37": {
+        "rank": "👑 Champion",
+        "xp_required": 74000
+      },
+      "38": {
+        "rank": "👑 Champion",
+        "xp_required": 77000
+      },
+      "39": {
+        "rank": "👑 Champion",
+        "xp_required": 80000
+      },
+      "4": {
+        "rank": "🌱 Rookie",
+        "xp_required": 500
+      },
+      "40": {
+        "rank": "🌟 Legend",
+        "xp_required": 83000
+      },
+      "41": {
+        "rank": "🌟 Legend",
+        "xp_required": 86000
+      },
+      "42": {
+        "rank": "🌟 Legend",
+        "xp_required": 89000
+      },
+      "43": {
+        "rank": "🌟 Legend",
+        "xp_required": 92000
+      },
+      "44": {
+        "rank": "🌟 Legend",
+        "xp_required": 95000
+      },
+      "45": {
+        "rank": "💫 Mythic",
+        "xp_required": 98000
+      },
+      "46": {
+        "rank": "💫 Mythic",
+        "xp_required": 100000
+      },
+      "47": {
+        "rank": "💫 Mythic",
+        "xp_required": 120000
+      },
+      "48": {
+        "rank": "💫 Mythic",
+        "xp_required": 140000
+      },
+      "49": {
+        "rank": "💫 Mythic",
+        "xp_required": 160000
+      },
+      "5": {
+        "rank": "🛰️ Cadet",
+        "xp_required": 750
+      },
+      "50": {
+        "rank": "💫 Mythic",
+        "xp_required": 180000
+      },
+      "6": {
+        "rank": "🛰️ Cadet",
+        "xp_required": 1000
+      },
+      "7": {
+        "rank": "🛰️ Cadet",
+        "xp_required": 1500
+      },
+      "8": {
+        "rank": "🛰️ Cadet",
+        "xp_required": 2000
+      },
+      "9": {
+        "rank": "🛰️ Cadet",
+        "xp_required": 3000
+      }
+    },
+    "source": "memory.rs LEVEL_XP_REQUIREMENTS / level_title / award_* functions",
+    "xp_awards": {
+      "conversation_per_user_message": {
+        "amount": "10 + level bonus",
+        "level_bonuses": {
+          ">=10": 5,
+          ">=25": 10,
+          ">=40": 15
+        },
+        "source": "memory::LevelingData::award_conversation_xp",
+        "trigger": "every user chat message (main.rs App::add_message)"
+      },
+      "correction": {
+        "amount": "15 + level bonus",
+        "level_bonuses": {
+          ">=30": 10
+        },
+        "source": "memory::LevelingData::award_correction_xp",
+        "trigger": "a wrong: correction is processed (main.rs App::get_brain)"
+      },
+      "followup": {
+        "also": "FollowUpExpert badge after 5 follow-up questions",
+        "amount": 15,
+        "source": "memory::Memory::award_followup_xp",
+        "trigger": "asking more/another/next on a topic (main.rs)"
+      },
+      "game_exploration": {
+        "also": "GameMaster badge once 3 distinct games played",
+        "amount": 5,
+        "source": "memory::Memory::award_game_exploration_xp"
+      },
+      "mission_completed": {
+        "amount": 75,
+        "source": "main.rs parse_mission_completion handler"
+      },
+      "per_recorded_qa": {
+        "amount": 10,
+        "note": "a single question can therefore award XP on two paths (add_message + add_conversation); intentional economy pacing, see docs/knowledge.md §Known quirks",
+        "source": "memory::Memory::add_conversation",
+        "trigger": "every answered question that is recorded to history"
+      },
+      "quest_completion": "quest.xp_reward (see daily_quests.pool)",
+      "streak_daily_bonus": {
+        "also": "StreakWarrior(7) badge + achievement at 7 days; StreakWarrior(30) at 30",
+        "amounts_by_streak": {
+          "1-3": 5,
+          "15-30": 50,
+          "31+": 75,
+          "4-7": 15,
+          "8-14": 30
+        },
+        "source": "memory::LevelingData::award_streak_xp",
+        "trigger": "user message while streak > 1 day (main.rs add_message)"
+      },
+      "streak_rules": {
+        "rules": [
+          "streak increments when last activity was exactly yesterday",
+          "streak resets to 1 after a fully missed calendar day",
+          "same-day activity leaves the streak unchanged",
+          "activity timestamps are stored as unix seconds in last_activity"
+        ],
+        "source": "memory::update_streak"
+      },
+      "teaching": {
+        "also": "awards the ⚡ Quick Learner path badge KnowledgeSeeker on first teach",
+        "amount": 25,
+        "source": "memory::Memory::award_teaching_xp",
+        "trigger": "teaching Rocket a new fact (main.rs)"
+      },
+      "topic_mastery": {
+        "amount": 20,
+        "note": "first time per topic only (repeat: 0 XP)",
+        "source": "memory::Memory::award_mastery_xp"
+      },
+      "untracked_win_celebrated": {
+        "amount": 25,
+        "source": "main.rs parse_mission_completion None branch"
+      }
+    },
+    "xp_requirements_indexed_by_level": [
+      0,
+      100,
+      250,
+      500,
+      750,
+      1000,
+      1500,
+      2000,
+      3000,
+      4000,
+      5000,
+      6000,
+      7500,
+      9000,
+      11000,
+      13000,
+      15000,
+      17500,
+      20000,
+      23000,
+      26000,
+      29000,
+      32000,
+      35000,
+      38000,
+      41000,
+      44000,
+      47000,
+      50000,
+      53000,
+      56000,
+      59000,
+      62000,
+      65000,
+      68000,
+      71000,
+      74000,
+      77000,
+      80000,
+      83000,
+      86000,
+      89000,
+      92000,
+      95000,
+      98000,
+      100000,
+      120000,
+      140000,
+      160000,
+      180000
+    ]
+  },
+  "meta": {
+    "app": "ROCKET — personal gaming AI companion",
+    "companion_documents": [
+      "docs/knowledge.md — full human-readable reference",
+      "docs/faq.md — common questions",
+      "docs/strategy_notes.md — optimization math and play patterns",
+      "docs/changelog.md — versioned history",
+      "docs/schema.json — machine-readable schema for this file",
+      "docs/games.json — game registry + knowledge stats",
+      "rocket-qa-report.md — verbatim Q&A evidence from the live pipeline"
+    ],
+    "generator": "cargo test docs_gen::generate_knowledge_artifacts (src/docs_gen.rs)",
+    "provenance_legend": {
+      "extracted": "value read from live code at test time — cannot drift",
+      "source": "pointer to the implementing function — auditable"
+    }
+  },
+  "missions": {
+    "cap_behavior": "adding a 6th open mission is refused with 'Mission board is full' (tested: mission_board_caps_at_five_open)",
+    "completion": {
+      "detection": "memory::parse_mission_completion matches win phrases; complete_mission_by_text matches board entries",
+      "tracked": "+75 XP + vibe celebration line with {mission} placeholder",
+      "untracked": "saying you beat something not on the board: +25 XP + celebration"
+    },
+    "duplicate_rule": "re-adding an active mission is refused ('already on our board')",
+    "model": "co-op missions: a title + game, done flag",
+    "open_cap": 5,
+    "source": "memory.rs Mission / parse_mission_completion / complete_mission_by_text + main.rs handlers"
+  },
+  "online_ai": {
+    "fallback_rules": [
+      "if online mode fails (no key, bad model, network error, HTTP error) Rocket answers from the local brain and says why",
+      "Local mode never touches the network",
+      "Ollama and LM Studio are local runtimes and require no key"
+    ],
+    "mode_storage": "rocket-llm.json (mode, provider, api_key, model, custom_url)",
+    "providers": [
+      {
+        "base_url": "https://api.groq.com/openai/v1",
+        "default_model": "llama-3.3-70b-versatile",
+        "id": "Groq",
+        "key_hint": "free key: console.groq.com/keys",
+        "label": "Groq (recommended)",
+        "requires_key": true
+      },
+      {
+        "base_url": "https://api.cerebras.ai/v1",
+        "default_model": "llama-3.3-70b",
+        "id": "Cerebras",
+        "key_hint": "free key: cloud.cerebras.ai",
+        "label": "Cerebras (fast + free tier)",
+        "requires_key": true
+      },
+      {
+        "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+        "default_model": "gemini-2.0-flash",
+        "id": "Gemini",
+        "key_hint": "free key: aistudio.google.com/apikey",
+        "label": "Google Gemini",
+        "requires_key": true
+      },
+      {
+        "base_url": "https://api.mistral.ai/v1",
+        "default_model": "mistral-small-latest",
+        "id": "Mistral",
+        "key_hint": "free tier key: console.mistral.ai",
+        "label": "Mistral AI",
+        "requires_key": true
+      },
+      {
+        "base_url": "https://openrouter.ai/api/v1",
+        "default_model": "openrouter/auto",
+        "id": "OpenRouter",
+        "key_hint": "key: openrouter.ai/keys",
+        "label": "OpenRouter",
+        "requires_key": true
+      },
+      {
+        "base_url": "https://api.deepseek.com/v1",
+        "default_model": "deepseek-chat",
+        "id": "DeepSeek",
+        "key_hint": "key: platform.deepseek.com",
+        "label": "DeepSeek",
+        "requires_key": true
+      },
+      {
+        "base_url": "https://api.together.xyz/v1",
+        "default_model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+        "id": "Together",
+        "key_hint": "key: api.together.ai (settings → keys)",
+        "label": "Together AI",
+        "requires_key": true
+      },
+      {
+        "base_url": "https://api.openai.com/v1",
+        "default_model": "gpt-4o-mini",
+        "id": "OpenAi",
+        "key_hint": "key: platform.openai.com/api-keys",
+        "label": "OpenAI (may block browsers)",
+        "requires_key": true
+      },
+      {
+        "base_url": "http://localhost:11434/v1",
+        "default_model": "llama3.2",
+        "id": "Ollama",
+        "key_hint": "local & free — run `ollama serve`, then no key needed",
+        "label": "Ollama (local, no key)",
+        "requires_key": false
+      },
+      {
+        "base_url": "http://localhost:1234/v1",
+        "default_model": "local-model",
+        "id": "LMStudio",
+        "key_hint": "local & free — start the LM Studio server, no key needed",
+        "label": "LM Studio (local, no key)",
+        "requires_key": false
+      },
+      {
+        "base_url": "",
+        "default_model": "",
+        "id": "Custom",
+        "key_hint": "paste your endpoint below (…/v1)",
+        "label": "Custom (OpenAI-compatible URL)",
+        "requires_key": true
+      }
+    ],
+    "request_shape": "OpenAI-compatible POST {base_url}/chat/completions",
+    "source": "llm.rs Settings::base_url/is_ready + main.rs llm error handling",
+    "system_prompt": "llm.rs system_prompt() bakes the user's learned facts, name, favorite game and corrections into the online system instructions"
+  },
+  "persistence": [
+    {
+      "file": "rocket_memory.json",
+      "owner": "memory.rs",
+      "purpose": "profile, learned personal facts, XP/level/coins, badges, achievements, decorations, titles, quests, missions, vibe, streak"
+    },
+    {
+      "file": "rocket-brain.json",
+      "owner": "ai.rs Brain",
+      "purpose": "taught answers, corrections, name, favorite game, custom games, topic hits, counters"
+    },
+    {
+      "file": "rocket_chat_history.json",
+      "owner": "main.rs",
+      "purpose": "chat transcript persistence"
+    },
+    {
+      "file": "rocket-llm.json",
+      "owner": "llm.rs",
+      "purpose": "online mode: mode, provider, api key, model, custom URL"
+    },
+    {
+      "file": "rocket_theme.json",
+      "owner": "theme.rs/main.rs",
+      "purpose": "theme selection"
+    },
+    {
+      "file": "rocket_detect.json",
+      "owner": "detect.rs",
+      "purpose": "auto-detection toggle"
+    }
+  ],
+  "titles": {
+    "count": 105,
+    "rules": [
+      "titles unlock automatically via check_progress_rewards once the stat meets the condition",
+      "equipping a title is profile-only cosmetics; exactly one title can be equipped",
+      "requirement() renders the human-readable unlock text"
+    ],
+    "source": "memory.rs PROFILE_TITLES",
+    "titles": [
+      {
+        "condition": {
+          "type": "level",
+          "value": 1
+        },
+        "icon": "🌱",
+        "id": "lvl_01",
+        "name": "Fresh Launch",
+        "rarity": "Basic",
+        "requirement": "Reach level 1"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 2
+        },
+        "icon": "🧑‍🚀",
+        "id": "lvl_02",
+        "name": "Ground Crew",
+        "rarity": "Basic",
+        "requirement": "Reach level 2"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 3
+        },
+        "icon": "⚡",
+        "id": "lvl_03",
+        "name": "Spark Plug",
+        "rarity": "Basic",
+        "requirement": "Reach level 3"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 4
+        },
+        "icon": "🔌",
+        "id": "lvl_04",
+        "name": "Fuel Line",
+        "rarity": "Basic",
+        "requirement": "Reach level 4"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 5
+        },
+        "icon": "🛰️",
+        "id": "lvl_05",
+        "name": "Cadet Grad",
+        "rarity": "Common",
+        "requirement": "Reach level 5"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 6
+        },
+        "icon": "🧨",
+        "id": "lvl_06",
+        "name": "Booster Stage",
+        "rarity": "Common",
+        "requirement": "Reach level 6"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 7
+        },
+        "icon": "☁️",
+        "id": "lvl_07",
+        "name": "Sky Walker",
+        "rarity": "Common",
+        "requirement": "Reach level 7"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 8
+        },
+        "icon": "🌤️",
+        "id": "lvl_08",
+        "name": "Cloud Piercer",
+        "rarity": "Common",
+        "requirement": "Reach level 8"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 9
+        },
+        "icon": "🍃",
+        "id": "lvl_09",
+        "name": "Stratosphere",
+        "rarity": "Common",
+        "requirement": "Reach level 9"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 10
+        },
+        "icon": "🚀",
+        "id": "lvl_10",
+        "name": "Orbit Cadet",
+        "rarity": "Common",
+        "requirement": "Reach level 10"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 11
+        },
+        "icon": "🌍",
+        "id": "lvl_11",
+        "name": "Orbital",
+        "rarity": "Common",
+        "requirement": "Reach level 11"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 12
+        },
+        "icon": "🪐",
+        "id": "lvl_12",
+        "name": "Gravity Breaker",
+        "rarity": "Common",
+        "requirement": "Reach level 12"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 13
+        },
+        "icon": "🌙",
+        "id": "lvl_13",
+        "name": "Moon Walker",
+        "rarity": "Common",
+        "requirement": "Reach level 13"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 14
+        },
+        "icon": "🌑",
+        "id": "lvl_14",
+        "name": "Eclipse",
+        "rarity": "Rare",
+        "requirement": "Reach level 14"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 15
+        },
+        "icon": "☀️",
+        "id": "lvl_15",
+        "name": "Solar Flare",
+        "rarity": "Rare",
+        "requirement": "Reach level 15"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 16
+        },
+        "icon": "☄️",
+        "id": "lvl_16",
+        "name": "Comet Chaser",
+        "rarity": "Rare",
+        "requirement": "Reach level 16"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 17
+        },
+        "icon": "🪨",
+        "id": "lvl_17",
+        "name": "Asteroid Belt",
+        "rarity": "Rare",
+        "requirement": "Reach level 17"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 18
+        },
+        "icon": "💫",
+        "id": "lvl_18",
+        "name": "Ring Bearer",
+        "rarity": "Rare",
+        "requirement": "Reach level 18"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 19
+        },
+        "icon": "🌌",
+        "id": "lvl_19",
+        "name": "Deep Space",
+        "rarity": "Rare",
+        "requirement": "Reach level 19"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 20
+        },
+        "icon": "🌠",
+        "id": "lvl_20",
+        "name": "Nebula",
+        "rarity": "Rare",
+        "requirement": "Reach level 20"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 21
+        },
+        "icon": "⭐",
+        "id": "lvl_21",
+        "name": "Star Forge",
+        "rarity": "Rare",
+        "requirement": "Reach level 21"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 22
+        },
+        "icon": "💥",
+        "id": "lvl_22",
+        "name": "Supernova",
+        "rarity": "Rare",
+        "requirement": "Reach level 22"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 23
+        },
+        "icon": "📡",
+        "id": "lvl_23",
+        "name": "Pulsar",
+        "rarity": "Rare",
+        "requirement": "Reach level 23"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 24
+        },
+        "icon": "🔆",
+        "id": "lvl_24",
+        "name": "Quasar",
+        "rarity": "Rare",
+        "requirement": "Reach level 24"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 25
+        },
+        "icon": "🥋",
+        "id": "lvl_25",
+        "name": "Void Black Belt",
+        "rarity": "Rare",
+        "requirement": "Reach level 25"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 26
+        },
+        "icon": "🕳️",
+        "id": "lvl_26",
+        "name": "Event Horizon",
+        "rarity": "Epic",
+        "requirement": "Reach level 26"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 27
+        },
+        "icon": "🛸",
+        "id": "lvl_27",
+        "name": "Warp Pioneer",
+        "rarity": "Epic",
+        "requirement": "Reach level 27"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 28
+        },
+        "icon": "🔗",
+        "id": "lvl_28",
+        "name": "Hyperlane",
+        "rarity": "Epic",
+        "requirement": "Reach level 28"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 29
+        },
+        "icon": "🏃",
+        "id": "lvl_29",
+        "name": "Void Runner",
+        "rarity": "Epic",
+        "requirement": "Reach level 29"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 30
+        },
+        "icon": "⚓",
+        "id": "lvl_30",
+        "name": "Starship Captain",
+        "rarity": "Epic",
+        "requirement": "Reach level 30"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 31
+        },
+        "icon": "🎖️",
+        "id": "lvl_31",
+        "name": "Fleet Commander",
+        "rarity": "Epic",
+        "requirement": "Reach level 31"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 32
+        },
+        "icon": "🛎️",
+        "id": "lvl_32",
+        "name": "Station Master",
+        "rarity": "Epic",
+        "requirement": "Reach level 32"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 33
+        },
+        "icon": "🏗️",
+        "id": "lvl_33",
+        "name": "Planet Crafter",
+        "rarity": "Epic",
+        "requirement": "Reach level 33"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 34
+        },
+        "icon": "🌎",
+        "id": "lvl_34",
+        "name": "Terraformer",
+        "rarity": "Epic",
+        "requirement": "Reach level 34"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 35
+        },
+        "icon": "🏛️",
+        "id": "lvl_35",
+        "name": "Galactic Senator",
+        "rarity": "Epic",
+        "requirement": "Reach level 35"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 36
+        },
+        "icon": "🛡️",
+        "id": "lvl_36",
+        "name": "Cosmic Warden",
+        "rarity": "Epic",
+        "requirement": "Reach level 36"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 37
+        },
+        "icon": "⚔️",
+        "id": "lvl_37",
+        "name": "Astral Knight",
+        "rarity": "Epic",
+        "requirement": "Reach level 37"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 38
+        },
+        "icon": "🐉",
+        "id": "lvl_38",
+        "name": "Comet Lord",
+        "rarity": "Epic",
+        "requirement": "Reach level 38"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 39
+        },
+        "icon": "🔥",
+        "id": "lvl_39",
+        "name": "Nova Commander",
+        "rarity": "Epic",
+        "requirement": "Reach level 39"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 40
+        },
+        "icon": "📜",
+        "id": "lvl_40",
+        "name": "Mythmaker",
+        "rarity": "Legendary",
+        "requirement": "Reach level 40"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 41
+        },
+        "icon": "🌅",
+        "id": "lvl_41",
+        "name": "Dawnbringer",
+        "rarity": "Legendary",
+        "requirement": "Reach level 41"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 42
+        },
+        "icon": "🌟",
+        "id": "lvl_42",
+        "name": "Legend Ascendant",
+        "rarity": "Legendary",
+        "requirement": "Reach level 42"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 43
+        },
+        "icon": "👑",
+        "id": "lvl_43",
+        "name": "Star Sovereign",
+        "rarity": "Legendary",
+        "requirement": "Reach level 43"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 44
+        },
+        "icon": "🎆",
+        "id": "lvl_44",
+        "name": "Galactic Legend",
+        "rarity": "Legendary",
+        "requirement": "Reach level 44"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 45
+        },
+        "icon": "🌌",
+        "id": "lvl_45",
+        "name": "Nebula Overlord",
+        "rarity": "Legendary",
+        "requirement": "Reach level 45"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 46
+        },
+        "icon": "🗿",
+        "id": "lvl_46",
+        "name": "Cosmic Titan",
+        "rarity": "Legendary",
+        "requirement": "Reach level 46"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 47
+        },
+        "icon": "✨",
+        "id": "lvl_47",
+        "name": "Universe Shaper",
+        "rarity": "Legendary",
+        "requirement": "Reach level 47"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 48
+        },
+        "icon": "⚡",
+        "id": "lvl_48",
+        "name": "Singularity",
+        "rarity": "Legendary",
+        "requirement": "Reach level 48"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 49
+        },
+        "icon": "🛩️",
+        "id": "lvl_49",
+        "name": "Omega Pilot",
+        "rarity": "Legendary",
+        "requirement": "Reach level 49"
+      },
+      {
+        "condition": {
+          "type": "level",
+          "value": 50
+        },
+        "icon": "💫",
+        "id": "lvl_50",
+        "name": "Beyond the Stars",
+        "rarity": "Legendary",
+        "requirement": "Reach level 50"
+      },
+      {
+        "condition": {
+          "type": "streak_days",
+          "value": 2
+        },
+        "icon": "🔥",
+        "id": "str_02",
+        "name": "Warming Up",
+        "rarity": "Basic",
+        "requirement": "2-day learning streak"
+      },
+      {
+        "condition": {
+          "type": "streak_days",
+          "value": 3
+        },
+        "icon": "🌶️",
+        "id": "str_03",
+        "name": "On Fire",
+        "rarity": "Basic",
+        "requirement": "3-day learning streak"
+      },
+      {
+        "condition": {
+          "type": "streak_days",
+          "value": 4
+        },
+        "icon": "🧯",
+        "id": "str_04",
+        "name": "Unburnable",
+        "rarity": "Common",
+        "requirement": "4-day learning streak"
+      },
+      {
+        "condition": {
+          "type": "streak_days",
+          "value": 5
+        },
+        "icon": "🏅",
+        "id": "str_05",
+        "name": "Streaker",
+        "rarity": "Common",
+        "requirement": "5-day learning streak"
+      },
+      {
+        "condition": {
+          "type": "streak_days",
+          "value": 7
+        },
+        "icon": "🗓️",
+        "id": "str_07",
+        "name": "Full Week Flame",
+        "rarity": "Common",
+        "requirement": "7-day learning streak"
+      },
+      {
+        "condition": {
+          "type": "streak_days",
+          "value": 10
+        },
+        "icon": "🌋",
+        "id": "str_10",
+        "name": "Blazing",
+        "rarity": "Rare",
+        "requirement": "10-day learning streak"
+      },
+      {
+        "condition": {
+          "type": "streak_days",
+          "value": 14
+        },
+        "icon": "🧨",
+        "id": "str_14",
+        "name": "Fortnight Fire",
+        "rarity": "Rare",
+        "requirement": "14-day learning streak"
+      },
+      {
+        "condition": {
+          "type": "streak_days",
+          "value": 21
+        },
+        "icon": "⚙️",
+        "id": "str_21",
+        "name": "Habit Engine",
+        "rarity": "Rare",
+        "requirement": "21-day learning streak"
+      },
+      {
+        "condition": {
+          "type": "streak_days",
+          "value": 30
+        },
+        "icon": "🌙",
+        "id": "str_30",
+        "name": "Moonlong Burn",
+        "rarity": "Epic",
+        "requirement": "30-day learning streak"
+      },
+      {
+        "condition": {
+          "type": "streak_days",
+          "value": 50
+        },
+        "icon": "🗿",
+        "id": "str_50",
+        "name": "Immovable",
+        "rarity": "Epic",
+        "requirement": "50-day learning streak"
+      },
+      {
+        "condition": {
+          "type": "streak_days",
+          "value": 100
+        },
+        "icon": "💯",
+        "id": "str_100",
+        "name": "Century Flame",
+        "rarity": "Epic",
+        "requirement": "100-day learning streak"
+      },
+      {
+        "condition": {
+          "type": "streak_days",
+          "value": 365
+        },
+        "icon": "🎆",
+        "id": "str_365",
+        "name": "Year of Fire",
+        "rarity": "Legendary",
+        "requirement": "365-day learning streak"
+      },
+      {
+        "condition": {
+          "type": "questions_answered",
+          "value": 1
+        },
+        "icon": "❓",
+        "id": "q_001",
+        "name": "Curious Mind",
+        "rarity": "Basic",
+        "requirement": "Ask 1 questions"
+      },
+      {
+        "condition": {
+          "type": "questions_answered",
+          "value": 3
+        },
+        "icon": "👋",
+        "id": "q_003",
+        "name": "Warm Welcome",
+        "rarity": "Basic",
+        "requirement": "Ask 3 questions"
+      },
+      {
+        "condition": {
+          "type": "questions_answered",
+          "value": 5
+        },
+        "icon": "🙋",
+        "id": "q_005",
+        "name": "Question Asker",
+        "rarity": "Basic",
+        "requirement": "Ask 5 questions"
+      },
+      {
+        "condition": {
+          "type": "questions_answered",
+          "value": 10
+        },
+        "icon": "🎯",
+        "id": "q_010",
+        "name": "Quiz Cadet",
+        "rarity": "Common",
+        "requirement": "Ask 10 questions"
+      },
+      {
+        "condition": {
+          "type": "questions_answered",
+          "value": 25
+        },
+        "icon": "🕵️",
+        "id": "q_025",
+        "name": "Answer Hunter",
+        "rarity": "Common",
+        "requirement": "Ask 25 questions"
+      },
+      {
+        "condition": {
+          "type": "questions_answered",
+          "value": 50
+        },
+        "icon": "🧠",
+        "id": "q_050",
+        "name": "Curiosity Engine",
+        "rarity": "Common",
+        "requirement": "Ask 50 questions"
+      },
+      {
+        "condition": {
+          "type": "questions_answered",
+          "value": 100
+        },
+        "icon": "💯",
+        "id": "q_100",
+        "name": "Hundred Club",
+        "rarity": "Rare",
+        "requirement": "Ask 100 questions"
+      },
+      {
+        "condition": {
+          "type": "questions_answered",
+          "value": 150
+        },
+        "icon": "🎓",
+        "id": "q_150",
+        "name": "Question Scholar",
+        "rarity": "Rare",
+        "requirement": "Ask 150 questions"
+      },
+      {
+        "condition": {
+          "type": "questions_answered",
+          "value": 200
+        },
+        "icon": "🤿",
+        "id": "q_200",
+        "name": "Deep Diver",
+        "rarity": "Rare",
+        "requirement": "Ask 200 questions"
+      },
+      {
+        "condition": {
+          "type": "questions_answered",
+          "value": 500
+        },
+        "icon": "🧐",
+        "id": "q_500",
+        "name": "Grand Inquisitor",
+        "rarity": "Epic",
+        "requirement": "Ask 500 questions"
+      },
+      {
+        "condition": {
+          "type": "questions_answered",
+          "value": 1000
+        },
+        "icon": "🔎",
+        "id": "q_1000",
+        "name": "Millennium Mind",
+        "rarity": "Epic",
+        "requirement": "Ask 1000 questions"
+      },
+      {
+        "condition": {
+          "type": "questions_answered",
+          "value": 2500
+        },
+        "icon": "🌠",
+        "id": "q_2500",
+        "name": "Curiosity Incarnate",
+        "rarity": "Legendary",
+        "requirement": "Ask 2500 questions"
+      },
+      {
+        "condition": {
+          "type": "facts_taught",
+          "value": 1
+        },
+        "icon": "🧠",
+        "id": "f_001",
+        "name": "First Lesson",
+        "rarity": "Basic",
+        "requirement": "Teach Rocket 1 facts"
+      },
+      {
+        "condition": {
+          "type": "facts_taught",
+          "value": 3
+        },
+        "icon": "🍎",
+        "id": "f_003",
+        "name": "Teacher's Pet",
+        "rarity": "Basic",
+        "requirement": "Teach Rocket 3 facts"
+      },
+      {
+        "condition": {
+          "type": "facts_taught",
+          "value": 5
+        },
+        "icon": "📖",
+        "id": "f_005",
+        "name": "Mentor",
+        "rarity": "Common",
+        "requirement": "Teach Rocket 5 facts"
+      },
+      {
+        "condition": {
+          "type": "facts_taught",
+          "value": 10
+        },
+        "icon": "🎓",
+        "id": "f_010",
+        "name": "Professor",
+        "rarity": "Common",
+        "requirement": "Teach Rocket 10 facts"
+      },
+      {
+        "condition": {
+          "type": "facts_taught",
+          "value": 20
+        },
+        "icon": "📚",
+        "id": "f_020",
+        "name": "Lore Keeper",
+        "rarity": "Rare",
+        "requirement": "Teach Rocket 20 facts"
+      },
+      {
+        "condition": {
+          "type": "facts_taught",
+          "value": 30
+        },
+        "icon": "🧬",
+        "id": "f_030",
+        "name": "Mind Architect",
+        "rarity": "Rare",
+        "requirement": "Teach Rocket 30 facts"
+      },
+      {
+        "condition": {
+          "type": "facts_taught",
+          "value": 40
+        },
+        "icon": "🗂️",
+        "id": "f_040",
+        "name": "Archive Keeper",
+        "rarity": "Rare",
+        "requirement": "Teach Rocket 40 facts"
+      },
+      {
+        "condition": {
+          "type": "facts_taught",
+          "value": 50
+        },
+        "icon": "🏛️",
+        "id": "f_050",
+        "name": "Grand Archivist",
+        "rarity": "Epic",
+        "requirement": "Teach Rocket 50 facts"
+      },
+      {
+        "condition": {
+          "type": "facts_taught",
+          "value": 60
+        },
+        "icon": "🧿",
+        "id": "f_060",
+        "name": "Oracle",
+        "rarity": "Epic",
+        "requirement": "Teach Rocket 60 facts"
+      },
+      {
+        "condition": {
+          "type": "facts_taught",
+          "value": 75
+        },
+        "icon": "📕",
+        "id": "f_075",
+        "name": "Living Encyclopedia",
+        "rarity": "Legendary",
+        "requirement": "Teach Rocket 75 facts"
+      },
+      {
+        "condition": {
+          "type": "topics_mastered",
+          "value": 1
+        },
+        "icon": "🥉",
+        "id": "t_001",
+        "name": "Specialist",
+        "rarity": "Common",
+        "requirement": "Master 1 topics"
+      },
+      {
+        "condition": {
+          "type": "topics_mastered",
+          "value": 3
+        },
+        "icon": "🥈",
+        "id": "t_003",
+        "name": "Polymath",
+        "rarity": "Common",
+        "requirement": "Master 3 topics"
+      },
+      {
+        "condition": {
+          "type": "topics_mastered",
+          "value": 5
+        },
+        "icon": "🥇",
+        "id": "t_005",
+        "name": "Mastermind",
+        "rarity": "Rare",
+        "requirement": "Master 5 topics"
+      },
+      {
+        "condition": {
+          "type": "topics_mastered",
+          "value": 10
+        },
+        "icon": "💎",
+        "id": "t_010",
+        "name": "Omniscient",
+        "rarity": "Rare",
+        "requirement": "Master 10 topics"
+      },
+      {
+        "condition": {
+          "type": "topics_mastered",
+          "value": 15
+        },
+        "icon": "🔮",
+        "id": "t_015",
+        "name": "Oracle of Topics",
+        "rarity": "Epic",
+        "requirement": "Master 15 topics"
+      },
+      {
+        "condition": {
+          "type": "topics_mastered",
+          "value": 20
+        },
+        "icon": "🌐",
+        "id": "t_020",
+        "name": "Renaissance Gamer",
+        "rarity": "Epic",
+        "requirement": "Master 20 topics"
+      },
+      {
+        "condition": {
+          "type": "topics_mastered",
+          "value": 30
+        },
+        "icon": "🧿",
+        "id": "t_030",
+        "name": "Polymath Prime",
+        "rarity": "Legendary",
+        "requirement": "Master 30 topics"
+      },
+      {
+        "condition": {
+          "type": "badges_earned",
+          "value": 1
+        },
+        "icon": "🎖️",
+        "id": "b_001",
+        "name": "Badge Earner",
+        "rarity": "Common",
+        "requirement": "Earn 1 badges"
+      },
+      {
+        "condition": {
+          "type": "badges_earned",
+          "value": 3
+        },
+        "icon": "🧷",
+        "id": "b_003",
+        "name": "Collector",
+        "rarity": "Common",
+        "requirement": "Earn 3 badges"
+      },
+      {
+        "condition": {
+          "type": "badges_earned",
+          "value": 5
+        },
+        "icon": "🏹",
+        "id": "b_005",
+        "name": "Badge Hunter",
+        "rarity": "Rare",
+        "requirement": "Earn 5 badges"
+      },
+      {
+        "condition": {
+          "type": "badges_earned",
+          "value": 8
+        },
+        "icon": "🎩",
+        "id": "b_008",
+        "name": "Badge Baron",
+        "rarity": "Epic",
+        "requirement": "Earn 8 badges"
+      },
+      {
+        "condition": {
+          "type": "total_xp",
+          "value": 250
+        },
+        "icon": "🪙",
+        "id": "xp_0250",
+        "name": "Early Energy",
+        "rarity": "Basic",
+        "requirement": "Earn 250 total XP"
+      },
+      {
+        "condition": {
+          "type": "total_xp",
+          "value": 1000
+        },
+        "icon": "🌾",
+        "id": "xp_1000",
+        "name": "One Grind",
+        "rarity": "Basic",
+        "requirement": "Earn 1000 total XP"
+      },
+      {
+        "condition": {
+          "type": "total_xp",
+          "value": 5000
+        },
+        "icon": "💰",
+        "id": "xp_5000",
+        "name": "XP Farmer",
+        "rarity": "Common",
+        "requirement": "Earn 5000 total XP"
+      },
+      {
+        "condition": {
+          "type": "total_xp",
+          "value": 10000
+        },
+        "icon": "🔟",
+        "id": "xp_10000",
+        "name": "Ten Thousand",
+        "rarity": "Common",
+        "requirement": "Earn 10000 total XP"
+      },
+      {
+        "condition": {
+          "type": "total_xp",
+          "value": 25000
+        },
+        "icon": "🏦",
+        "id": "xp_25000",
+        "name": "XP Tycoon",
+        "rarity": "Rare",
+        "requirement": "Earn 25000 total XP"
+      },
+      {
+        "condition": {
+          "type": "total_xp",
+          "value": 50000
+        },
+        "icon": "💎",
+        "id": "xp_50000",
+        "name": "XP Baron",
+        "rarity": "Rare",
+        "requirement": "Earn 50000 total XP"
+      },
+      {
+        "condition": {
+          "type": "total_xp",
+          "value": 75000
+        },
+        "icon": "👑",
+        "id": "xp_75000",
+        "name": "XP Magnate",
+        "rarity": "Epic",
+        "requirement": "Earn 75000 total XP"
+      },
+      {
+        "condition": {
+          "type": "total_xp",
+          "value": 100000
+        },
+        "icon": "🏆",
+        "id": "xp_100000",
+        "name": "XP Sovereign",
+        "rarity": "Epic",
+        "requirement": "Earn 100000 total XP"
+      },
+      {
+        "condition": {
+          "type": "total_xp",
+          "value": 150000
+        },
+        "icon": "🌠",
+        "id": "xp_150000",
+        "name": "XP Deity",
+        "rarity": "Legendary",
+        "requirement": "Earn 150000 total XP"
+      },
+      {
+        "condition": {
+          "type": "total_xp",
+          "value": 180000
+        },
+        "icon": "💫",
+        "id": "xp_180000",
+        "name": "Max Grind",
+        "rarity": "Legendary",
+        "requirement": "Earn 180000 total XP"
+      }
+    ]
+  },
+  "vibes": {
+    "persistence": "current vibe id stored in rocket_memory.json (.vibe)",
+    "placeholders": "{mission} in mission_done lines is replaced with 'title (game)'",
+    "source": "vibe.rs VIBES / parse_vibe_command / fill",
+    "switch_commands": "see answer_pipeline.vibe_command_prefixes; unknown vibe falls back to buddy (tested)",
+    "vibes": [
+      {
+        "game_switch_lines": 3,
+        "id": "buddy",
+        "intro": "🤝 Buddy mode on — I've got your back out there.",
+        "label": "🤝 Buddy",
+        "mission_created_lines": 3,
+        "mission_done_lines": 3,
+        "reaction_lines": 3,
+        "tail_lines": 3
+      },
+      {
+        "game_switch_lines": 3,
+        "id": "chill",
+        "intro": "😎 Chill mode on — we play it cool and we get there.",
+        "label": "😎 Chill",
+        "mission_created_lines": 3,
+        "mission_done_lines": 3,
+        "reaction_lines": 3,
+        "tail_lines": 3
+      },
+      {
+        "game_switch_lines": 3,
+        "id": "funny",
+        "intro": "😂 Funny mode on — gameplay advice 90% quality, 10% nonsense, 100% fun.",
+        "label": "😂 Funny",
+        "mission_created_lines": 3,
+        "mission_done_lines": 3,
+        "reaction_lines": 3,
+        "tail_lines": 4
+      },
+      {
+        "game_switch_lines": 3,
+        "id": "hyped",
+        "intro": "🔥 HYPED MODE ON — LET'S GOOOO!!",
+        "label": "🔥 Hyped",
+        "mission_created_lines": 3,
+        "mission_done_lines": 3,
+        "reaction_lines": 3,
+        "tail_lines": 3
+      },
+      {
+        "game_switch_lines": 3,
+        "id": "mentor",
+        "intro": "🧙 Mentor mode on — patience, practice, and we beat anything.",
+        "label": "🧙 Mentor",
+        "mission_created_lines": 3,
+        "mission_done_lines": 3,
+        "reaction_lines": 3,
+        "tail_lines": 3
+      }
+    ]
+  },
+  "xp_shop": {
+    "buy_decoration_rules": [
+      "unlocking charges decoration_price(rarity) once",
+      "already-owned decorations cannot be re-bought",
+      "equipping requires unlocked state (tested: equip_decoration_only_when_unlocked)",
+      "equipping a decoration unequips every other decoration in the same category (one per category)"
+    ],
+    "categories": [
+      "Frame",
+      "Background",
+      "Icon",
+      "Animation",
+      "Title"
+    ],
+    "decoration_prices_by_rarity": {
+      "Basic": 0,
+      "Common": 300,
+      "Epic": 1500,
+      "Legendary": 3000,
+      "Rare": 800
+    },
+    "mystery_box": {
+      "exhaustion": "if every decoration is owned the purchase is refused and no coins are spent",
+      "insufficient_coins": "refused with the exact cost and balance in the message; no partial spend",
+      "outcome_distribution": "uniform over currently LOCKED decorations: pick = rand(0..locked.len())",
+      "price": 500,
+      "source": "memory.rs LevelingData::buy_mystery_box"
+    },
+    "source": "memory.rs decoration_price / buy_decoration / equip_decoration"
+  }
+}

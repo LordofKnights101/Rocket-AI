@@ -1,0 +1,1973 @@
+{
+  "game_count": 167,
+  "games": [
+    {
+      "emoji": "⛏️",
+      "genre": "Sandbox",
+      "id": "Minecraft",
+      "name": "Minecraft",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo",
+        "Mobile"
+      ],
+      "year": 2011
+    },
+    {
+      "emoji": "🧱",
+      "genre": "Sandbox",
+      "id": "Roblox",
+      "name": "Roblox",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Mobile"
+      ],
+      "year": 2006
+    },
+    {
+      "emoji": "🎯",
+      "genre": "Shooter",
+      "id": "Valorant",
+      "name": "Valorant",
+      "platforms": [
+        "Pc"
+      ],
+      "year": 2020
+    },
+    {
+      "emoji": "💣",
+      "genre": "Shooter",
+      "id": "CS2",
+      "name": "Counter-Strike 2",
+      "platforms": [
+        "Pc"
+      ],
+      "year": 2023
+    },
+    {
+      "emoji": "🪂",
+      "genre": "Shooter",
+      "id": "Fortnite",
+      "name": "Fortnite",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo",
+        "Mobile"
+      ],
+      "year": 2017
+    },
+    {
+      "emoji": "🎖️",
+      "genre": "Shooter",
+      "id": "CallOfDuty",
+      "name": "Call of Duty",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2003
+    },
+    {
+      "emoji": "🏹",
+      "genre": "Shooter",
+      "id": "ApexLegends",
+      "name": "Apex Legends",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2019
+    },
+    {
+      "emoji": "🍗",
+      "genre": "Shooter",
+      "id": "PUBG",
+      "name": "PUBG",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Mobile"
+      ],
+      "year": 2017
+    },
+    {
+      "emoji": "⚔️",
+      "genre": "Moba",
+      "id": "LeagueOfLegends",
+      "name": "League of Legends",
+      "platforms": [
+        "Pc"
+      ],
+      "year": 2009
+    },
+    {
+      "emoji": "🪓",
+      "genre": "Moba",
+      "id": "Dota2",
+      "name": "Dota 2",
+      "platforms": [
+        "Pc"
+      ],
+      "year": 2013
+    },
+    {
+      "emoji": "🧝",
+      "genre": "Mmo",
+      "id": "WorldOfWarcraft",
+      "name": "World of Warcraft",
+      "platforms": [
+        "Pc"
+      ],
+      "year": 2004
+    },
+    {
+      "emoji": "🐉",
+      "genre": "Rpg",
+      "id": "Skyrim",
+      "name": "Skyrim",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2011
+    },
+    {
+      "emoji": "🛡️",
+      "genre": "Rpg",
+      "id": "Zelda",
+      "name": "Zelda Series",
+      "platforms": [
+        "Nintendo"
+      ],
+      "year": 1986
+    },
+    {
+      "emoji": "🚗",
+      "genre": "OpenWorld",
+      "id": "GTA",
+      "name": "GTA Series",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 1997
+    },
+    {
+      "emoji": "⚽",
+      "genre": "Sports",
+      "id": "RocketLeague",
+      "name": "Rocket League",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2015
+    },
+    {
+      "emoji": "🌾",
+      "genre": "Simulation",
+      "id": "StardewValley",
+      "name": "Stardew Valley",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo",
+        "Mobile"
+      ],
+      "year": 2016
+    },
+    {
+      "emoji": "💎",
+      "genre": "Simulation",
+      "id": "TheSims",
+      "name": "The Sims",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2000
+    },
+    {
+      "emoji": "👽",
+      "genre": "Party",
+      "id": "AmongUs",
+      "name": "Among Us",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo",
+        "Mobile"
+      ],
+      "year": 2018
+    },
+    {
+      "emoji": "🎉",
+      "genre": "Party",
+      "id": "FallGuys",
+      "name": "Fall Guys",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2020
+    },
+    {
+      "emoji": "🦸",
+      "genre": "Shooter",
+      "id": "Overwatch",
+      "name": "Overwatch 2",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2022
+    },
+    {
+      "emoji": "🚪",
+      "genre": "Shooter",
+      "id": "RainbowSix",
+      "name": "Rainbow Six Siege",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2015
+    },
+    {
+      "emoji": "🌌",
+      "genre": "Shooter",
+      "id": "Destiny2",
+      "name": "Destiny 2",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2017
+    },
+    {
+      "emoji": "👽",
+      "genre": "Shooter",
+      "id": "Halo",
+      "name": "Halo Infinite",
+      "platforms": [
+        "Pc",
+        "Xbox"
+      ],
+      "year": 2021
+    },
+    {
+      "emoji": "⚙️",
+      "genre": "Shooter",
+      "id": "GearsOfWar",
+      "name": "Gears of War",
+      "platforms": [
+        "Pc",
+        "Xbox"
+      ],
+      "year": 2006
+    },
+    {
+      "emoji": "💥",
+      "genre": "Shooter",
+      "id": "Battlefield",
+      "name": "Battlefield 2042",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2021
+    },
+    {
+      "emoji": "🎒",
+      "genre": "Shooter",
+      "id": "EscapeFromTarkov",
+      "name": "Escape from Tarkov",
+      "platforms": [
+        "Pc"
+      ],
+      "year": 2017
+    },
+    {
+      "emoji": "🌕",
+      "genre": "Shooter",
+      "id": "HuntShowdown",
+      "name": "Hunt: Showdown",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2019
+    },
+    {
+      "emoji": "🤖",
+      "genre": "Shooter",
+      "id": "Warframe",
+      "name": "Warframe",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2013
+    },
+    {
+      "emoji": "🎩",
+      "genre": "Shooter",
+      "id": "TeamFortress2",
+      "name": "Team Fortress 2",
+      "platforms": [
+        "Pc"
+      ],
+      "year": 2007
+    },
+    {
+      "emoji": "🕷️",
+      "genre": "Shooter",
+      "id": "MarvelRivals",
+      "name": "Marvel Rivals",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2024
+    },
+    {
+      "emoji": "🪖",
+      "genre": "Shooter",
+      "id": "Helldivers2",
+      "name": "Helldivers 2",
+      "platforms": [
+        "Pc",
+        "PlayStation"
+      ],
+      "year": 2024
+    },
+    {
+      "emoji": "😈",
+      "genre": "Shooter",
+      "id": "Doom",
+      "name": "Doom Eternal",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2020
+    },
+    {
+      "emoji": "🔫",
+      "genre": "Shooter",
+      "id": "Borderlands",
+      "name": "Borderlands 3",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2019
+    },
+    {
+      "emoji": "🏞️",
+      "genre": "Shooter",
+      "id": "FarCry",
+      "name": "Far Cry 5",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2018
+    },
+    {
+      "emoji": "🏟️",
+      "genre": "Shooter",
+      "id": "TheFinals",
+      "name": "The Finals",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2023
+    },
+    {
+      "emoji": "🔮",
+      "genre": "Shooter",
+      "id": "Paladins",
+      "name": "Paladins",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2018
+    },
+    {
+      "emoji": "🌀",
+      "genre": "Shooter",
+      "id": "Splitgate",
+      "name": "Splitgate",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2021
+    },
+    {
+      "emoji": "🦾",
+      "genre": "Shooter",
+      "id": "Titanfall2",
+      "name": "Titanfall 2",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2016
+    },
+    {
+      "emoji": "🦑",
+      "genre": "Shooter",
+      "id": "Splatoon",
+      "name": "Splatoon 3",
+      "platforms": [
+        "Nintendo"
+      ],
+      "year": 2022
+    },
+    {
+      "emoji": "⚡",
+      "genre": "Moba",
+      "id": "Smite",
+      "name": "Smite",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2014
+    },
+    {
+      "emoji": "🌪️",
+      "genre": "Moba",
+      "id": "HeroesOfTheStorm",
+      "name": "Heroes of the Storm",
+      "platforms": [
+        "Pc"
+      ],
+      "year": 2015
+    },
+    {
+      "emoji": "📱",
+      "genre": "Moba",
+      "id": "MobileLegends",
+      "name": "Mobile Legends",
+      "platforms": [
+        "Mobile"
+      ],
+      "year": 2016
+    },
+    {
+      "emoji": "⭐",
+      "genre": "Moba",
+      "id": "BrawlStars",
+      "name": "Brawl Stars",
+      "platforms": [
+        "Mobile"
+      ],
+      "year": 2018
+    },
+    {
+      "emoji": "🚀",
+      "genre": "Strategy",
+      "id": "StarCraft2",
+      "name": "StarCraft II",
+      "platforms": [
+        "Pc"
+      ],
+      "year": 2010
+    },
+    {
+      "emoji": "🏰",
+      "genre": "Strategy",
+      "id": "AgeOfEmpires",
+      "name": "Age of Empires IV",
+      "platforms": [
+        "Pc",
+        "Xbox"
+      ],
+      "year": 2021
+    },
+    {
+      "emoji": "🌍",
+      "genre": "Strategy",
+      "id": "Civilization6",
+      "name": "Civilization VI",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo",
+        "Mobile"
+      ],
+      "year": 2016
+    },
+    {
+      "emoji": "🔨",
+      "genre": "Strategy",
+      "id": "TotalWar",
+      "name": "Total War: WARHAMMER III",
+      "platforms": [
+        "Pc"
+      ],
+      "year": 2022
+    },
+    {
+      "emoji": "🛡️",
+      "genre": "Strategy",
+      "id": "ClashOfClans",
+      "name": "Clash of Clans",
+      "platforms": [
+        "Mobile"
+      ],
+      "year": 2012
+    },
+    {
+      "emoji": "👑",
+      "genre": "Strategy",
+      "id": "ClashRoyale",
+      "name": "Clash Royale",
+      "platforms": [
+        "Mobile"
+      ],
+      "year": 2016
+    },
+    {
+      "emoji": "🐲",
+      "genre": "Strategy",
+      "id": "Warcraft3",
+      "name": "Warcraft III",
+      "platforms": [
+        "Pc"
+      ],
+      "year": 2002
+    },
+    {
+      "emoji": "🌳",
+      "genre": "Sandbox",
+      "id": "Terraria",
+      "name": "Terraria",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo",
+        "Mobile"
+      ],
+      "year": 2011
+    },
+    {
+      "emoji": "🪓",
+      "genre": "Sandbox",
+      "id": "Rust",
+      "name": "Rust",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2018
+    },
+    {
+      "emoji": "🦖",
+      "genre": "Sandbox",
+      "id": "ARK",
+      "name": "ARK: Survival Evolved",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2017
+    },
+    {
+      "emoji": "🛶",
+      "genre": "Sandbox",
+      "id": "Valheim",
+      "name": "Valheim",
+      "platforms": [
+        "Pc",
+        "Xbox"
+      ],
+      "year": 2021
+    },
+    {
+      "emoji": "🧟",
+      "genre": "Sandbox",
+      "id": "SevenDaysToDie",
+      "name": "7 Days to Die",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2013
+    },
+    {
+      "emoji": "🐠",
+      "genre": "Sandbox",
+      "id": "Subnautica",
+      "name": "Subnautica",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2018
+    },
+    {
+      "emoji": "🌠",
+      "genre": "Sandbox",
+      "id": "NoMansSky",
+      "name": "No Man's Sky",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2016
+    },
+    {
+      "emoji": "🌑",
+      "genre": "Sandbox",
+      "id": "DontStarve",
+      "name": "Don't Starve",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2013
+    },
+    {
+      "emoji": "🛟",
+      "genre": "Sandbox",
+      "id": "Raft",
+      "name": "Raft",
+      "platforms": [
+        "Pc"
+      ],
+      "year": 2022
+    },
+    {
+      "emoji": "🌲",
+      "genre": "Sandbox",
+      "id": "TheForest",
+      "name": "The Forest",
+      "platforms": [
+        "Pc",
+        "PlayStation"
+      ],
+      "year": 2018
+    },
+    {
+      "emoji": "🪵",
+      "genre": "Sandbox",
+      "id": "SonsOfTheForest",
+      "name": "Sons of the Forest",
+      "platforms": [
+        "Pc"
+      ],
+      "year": 2024
+    },
+    {
+      "emoji": "🐜",
+      "genre": "Sandbox",
+      "id": "Grounded",
+      "name": "Grounded",
+      "platforms": [
+        "Pc",
+        "Xbox",
+        "PlayStation"
+      ],
+      "year": 2022
+    },
+    {
+      "emoji": "🪐",
+      "genre": "Sandbox",
+      "id": "Astroneer",
+      "name": "Astroneer",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2019
+    },
+    {
+      "emoji": "🐑",
+      "genre": "Sandbox",
+      "id": "Palworld",
+      "name": "Palworld",
+      "platforms": [
+        "Pc",
+        "Xbox",
+        "PlayStation"
+      ],
+      "year": 2024
+    },
+    {
+      "emoji": "🧱",
+      "genre": "Sandbox",
+      "id": "LegoFortnite",
+      "name": "LEGO Fortnite",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2023
+    },
+    {
+      "emoji": "💍",
+      "genre": "Rpg",
+      "id": "EldenRing",
+      "name": "Elden Ring",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2022
+    },
+    {
+      "emoji": "🔥",
+      "genre": "Rpg",
+      "id": "DarkSouls3",
+      "name": "Dark Souls III",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2016
+    },
+    {
+      "emoji": "🐲",
+      "genre": "Rpg",
+      "id": "BaldursGate3",
+      "name": "Baldur's Gate 3",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2023
+    },
+    {
+      "emoji": "🌃",
+      "genre": "Rpg",
+      "id": "Cyberpunk",
+      "name": "Cyberpunk 2077",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2020
+    },
+    {
+      "emoji": "🐺",
+      "genre": "Rpg",
+      "id": "Witcher3",
+      "name": "The Witcher 3",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2015
+    },
+    {
+      "emoji": "😈",
+      "genre": "Rpg",
+      "id": "Diablo4",
+      "name": "Diablo IV",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2023
+    },
+    {
+      "emoji": "💀",
+      "genre": "Rpg",
+      "id": "PathOfExile",
+      "name": "Path of Exile",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2013
+    },
+    {
+      "emoji": "🎭",
+      "genre": "Rpg",
+      "id": "Persona5",
+      "name": "Persona 5 Royal",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2019
+    },
+    {
+      "emoji": "🐗",
+      "genre": "Rpg",
+      "id": "MonsterHunter",
+      "name": "Monster Hunter World",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2018
+    },
+    {
+      "emoji": "🌩️",
+      "genre": "Rpg",
+      "id": "MonsterHunterWilds",
+      "name": "Monster Hunter Wilds",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2025
+    },
+    {
+      "emoji": "🌫️",
+      "genre": "Rpg",
+      "id": "Genshin",
+      "name": "Genshin Impact",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Mobile"
+      ],
+      "year": 2020
+    },
+    {
+      "emoji": "🚄",
+      "genre": "Rpg",
+      "id": "HonkaiStarRail",
+      "name": "Honkai: Star Rail",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Mobile"
+      ],
+      "year": 2023
+    },
+    {
+      "emoji": "🌙",
+      "genre": "Rpg",
+      "id": "Bloodborne",
+      "name": "Bloodborne",
+      "platforms": [
+        "PlayStation"
+      ],
+      "year": 2015
+    },
+    {
+      "emoji": "🥷",
+      "genre": "Rpg",
+      "id": "Sekiro",
+      "name": "Sekiro",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2019
+    },
+    {
+      "emoji": "☢️",
+      "genre": "Rpg",
+      "id": "Fallout4",
+      "name": "Fallout 4",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2015
+    },
+    {
+      "emoji": "🏚️",
+      "genre": "Rpg",
+      "id": "Fallout76",
+      "name": "Fallout 76",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2018
+    },
+    {
+      "emoji": "🚪",
+      "genre": "Rpg",
+      "id": "Oblivion",
+      "name": "Oblivion",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2006
+    },
+    {
+      "emoji": "⚔️",
+      "genre": "Rpg",
+      "id": "KingdomCome",
+      "name": "Kingdom Come: Deliverance",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2018
+    },
+    {
+      "emoji": "✨",
+      "genre": "Rpg",
+      "id": "Divinity2",
+      "name": "Divinity: Original Sin 2",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2017
+    },
+    {
+      "emoji": "🚀",
+      "genre": "Rpg",
+      "id": "MassEffect",
+      "name": "Mass Effect",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2007
+    },
+    {
+      "emoji": "🔴",
+      "genre": "Rpg",
+      "id": "Pokemon",
+      "name": "Pokémon Scarlet/Violet",
+      "platforms": [
+        "Nintendo"
+      ],
+      "year": 2022
+    },
+    {
+      "emoji": "🪄",
+      "genre": "Rpg",
+      "id": "Hogwarts",
+      "name": "Hogwarts Legacy",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2023
+    },
+    {
+      "emoji": "🐒",
+      "genre": "Rpg",
+      "id": "Wukong",
+      "name": "Black Myth: Wukong",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2024
+    },
+    {
+      "emoji": "🌟",
+      "genre": "Rpg",
+      "id": "Starfield",
+      "name": "Starfield",
+      "platforms": [
+        "Pc",
+        "Xbox"
+      ],
+      "year": 2023
+    },
+    {
+      "emoji": "🔥",
+      "genre": "Rpg",
+      "id": "Hades",
+      "name": "Hades",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2020
+    },
+    {
+      "emoji": "🤠",
+      "genre": "OpenWorld",
+      "id": "RDR2",
+      "name": "Red Dead Redemption 2",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2018
+    },
+    {
+      "emoji": "🪓",
+      "genre": "OpenWorld",
+      "id": "AssassinsCreed",
+      "name": "Assassin's Creed Valhalla",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2020
+    },
+    {
+      "emoji": "⛩️",
+      "genre": "OpenWorld",
+      "id": "GhostOfTsushima",
+      "name": "Ghost of Tsushima",
+      "platforms": [
+        "Pc",
+        "PlayStation"
+      ],
+      "year": 2020
+    },
+    {
+      "emoji": "🦖",
+      "genre": "OpenWorld",
+      "id": "HorizonZeroDawn",
+      "name": "Horizon Zero Dawn",
+      "platforms": [
+        "Pc",
+        "PlayStation"
+      ],
+      "year": 2017
+    },
+    {
+      "emoji": "🌧️",
+      "genre": "OpenWorld",
+      "id": "DeathStranding",
+      "name": "Death Stranding",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2019
+    },
+    {
+      "emoji": "💻",
+      "genre": "OpenWorld",
+      "id": "WatchDogs",
+      "name": "Watch Dogs 2",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2016
+    },
+    {
+      "emoji": "🏴",
+      "genre": "OpenWorld",
+      "id": "SeaOfThieves",
+      "name": "Sea of Thieves",
+      "platforms": [
+        "Pc",
+        "Xbox",
+        "PlayStation"
+      ],
+      "year": 2018
+    },
+    {
+      "emoji": "🏍️",
+      "genre": "OpenWorld",
+      "id": "DaysGone",
+      "name": "Days Gone",
+      "platforms": [
+        "Pc",
+        "PlayStation"
+      ],
+      "year": 2019
+    },
+    {
+      "emoji": "⚽",
+      "genre": "Sports",
+      "id": "EAFC",
+      "name": "EA Sports FC 24",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2023
+    },
+    {
+      "emoji": "🏀",
+      "genre": "Sports",
+      "id": "NBA2K",
+      "name": "NBA 2K24",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2023
+    },
+    {
+      "emoji": "🏈",
+      "genre": "Sports",
+      "id": "Madden",
+      "name": "Madden NFL 24",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2023
+    },
+    {
+      "emoji": "⚾",
+      "genre": "Sports",
+      "id": "MLBTheShow",
+      "name": "MLB The Show",
+      "platforms": [
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2021
+    },
+    {
+      "emoji": "🥊",
+      "genre": "Sports",
+      "id": "UFC",
+      "name": "UFC 5",
+      "platforms": [
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2023
+    },
+    {
+      "emoji": "🏎️",
+      "genre": "Racing",
+      "id": "Forza",
+      "name": "Forza Horizon 5",
+      "platforms": [
+        "Pc",
+        "Xbox"
+      ],
+      "year": 2021
+    },
+    {
+      "emoji": "🏁",
+      "genre": "Racing",
+      "id": "GranTurismo",
+      "name": "Gran Turismo 7",
+      "platforms": [
+        "PlayStation"
+      ],
+      "year": 2022
+    },
+    {
+      "emoji": "🍄",
+      "genre": "Racing",
+      "id": "MarioKart",
+      "name": "Mario Kart 8 Deluxe",
+      "platforms": [
+        "Nintendo"
+      ],
+      "year": 2017
+    },
+    {
+      "emoji": "🏎",
+      "genre": "Racing",
+      "id": "F1",
+      "name": "F1 23",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2023
+    },
+    {
+      "emoji": "🚙",
+      "genre": "Racing",
+      "id": "NeedForSpeed",
+      "name": "Need for Speed Heat",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2019
+    },
+    {
+      "emoji": "🛣️",
+      "genre": "Racing",
+      "id": "Trackmania",
+      "name": "Trackmania",
+      "platforms": [
+        "Pc"
+      ],
+      "year": 2020
+    },
+    {
+      "emoji": "✈️",
+      "genre": "Simulation",
+      "id": "FlightSim",
+      "name": "Microsoft Flight Simulator",
+      "platforms": [
+        "Pc",
+        "Xbox"
+      ],
+      "year": 2020
+    },
+    {
+      "emoji": "🚚",
+      "genre": "Simulation",
+      "id": "EuroTruck",
+      "name": "Euro Truck Simulator 2",
+      "platforms": [
+        "Pc"
+      ],
+      "year": 2012
+    },
+    {
+      "emoji": "🏙️",
+      "genre": "Simulation",
+      "id": "CitiesSkylines",
+      "name": "Cities: Skylines",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2015
+    },
+    {
+      "emoji": "🎢",
+      "genre": "Simulation",
+      "id": "PlanetCoaster",
+      "name": "Planet Coaster",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2016
+    },
+    {
+      "emoji": "📋",
+      "genre": "Simulation",
+      "id": "FootballManager",
+      "name": "Football Manager",
+      "platforms": [
+        "Pc",
+        "Mobile"
+      ],
+      "year": 2024
+    },
+    {
+      "emoji": "🚜",
+      "genre": "Simulation",
+      "id": "FarmingSim",
+      "name": "Farming Simulator 22",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2021
+    },
+    {
+      "emoji": "🚿",
+      "genre": "Simulation",
+      "id": "PowerWash",
+      "name": "PowerWash Simulator",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2022
+    },
+    {
+      "emoji": "🛰️",
+      "genre": "Simulation",
+      "id": "Kerbal",
+      "name": "Kerbal Space Program",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2015
+    },
+    {
+      "emoji": "🔨",
+      "genre": "Simulation",
+      "id": "HouseFlipper",
+      "name": "House Flipper",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2018
+    },
+    {
+      "emoji": "⚙️",
+      "genre": "Simulation",
+      "id": "Factorio",
+      "name": "Factorio",
+      "platforms": [
+        "Pc",
+        "Nintendo"
+      ],
+      "year": 2020
+    },
+    {
+      "emoji": "🏭",
+      "genre": "Simulation",
+      "id": "Satisfactory",
+      "name": "Satisfactory",
+      "platforms": [
+        "Pc"
+      ],
+      "year": 2024
+    },
+    {
+      "emoji": "🍃",
+      "genre": "Simulation",
+      "id": "AnimalCrossing",
+      "name": "Animal Crossing",
+      "platforms": [
+        "Nintendo"
+      ],
+      "year": 2020
+    },
+    {
+      "emoji": "🤿",
+      "genre": "Simulation",
+      "id": "DaveTheDiver",
+      "name": "Dave the Diver",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Nintendo"
+      ],
+      "year": 2023
+    },
+    {
+      "emoji": "🎉",
+      "genre": "Party",
+      "id": "Jackbox",
+      "name": "Jackbox Party Pack",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2014
+    },
+    {
+      "emoji": "📞",
+      "genre": "Party",
+      "id": "GarticPhone",
+      "name": "Gartic Phone",
+      "platforms": [
+        "Pc"
+      ],
+      "year": 2021
+    },
+    {
+      "emoji": "🎲",
+      "genre": "Party",
+      "id": "PummelParty",
+      "name": "Pummel Party",
+      "platforms": [
+        "Pc"
+      ],
+      "year": 2018
+    },
+    {
+      "emoji": "⛳",
+      "genre": "Party",
+      "id": "GolfWithFriends",
+      "name": "Golf With Your Friends",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2020
+    },
+    {
+      "emoji": "♠️",
+      "genre": "Party",
+      "id": "TabletopSim",
+      "name": "Tabletop Simulator",
+      "platforms": [
+        "Pc"
+      ],
+      "year": 2015
+    },
+    {
+      "emoji": "🧍",
+      "genre": "Party",
+      "id": "HumanFallFlat",
+      "name": "Human: Fall Flat",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo",
+        "Mobile"
+      ],
+      "year": 2016
+    },
+    {
+      "emoji": "🟨",
+      "genre": "Party",
+      "id": "GangBeasts",
+      "name": "Gang Beasts",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2017
+    },
+    {
+      "emoji": "🏃",
+      "genre": "Party",
+      "id": "StumbleGuys",
+      "name": "Stumble Guys",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Mobile"
+      ],
+      "year": 2021
+    },
+    {
+      "emoji": "⭐",
+      "genre": "Party",
+      "id": "MarioParty",
+      "name": "Mario Party Superstars",
+      "platforms": [
+        "Nintendo"
+      ],
+      "year": 2021
+    },
+    {
+      "emoji": "👫",
+      "genre": "Party",
+      "id": "ItTakesTwo",
+      "name": "It Takes Two",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2021
+    },
+    {
+      "emoji": "📍",
+      "genre": "Party",
+      "id": "PokemonGO",
+      "name": "Pokémon GO",
+      "platforms": [
+        "Mobile"
+      ],
+      "year": 2016
+    },
+    {
+      "emoji": "👊",
+      "genre": "Fighting",
+      "id": "StreetFighter6",
+      "name": "Street Fighter 6",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2023
+    },
+    {
+      "emoji": "🥋",
+      "genre": "Fighting",
+      "id": "MortalKombat",
+      "name": "Mortal Kombat 1",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2023
+    },
+    {
+      "emoji": "🥊",
+      "genre": "Fighting",
+      "id": "Tekken",
+      "name": "Tekken 8",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2024
+    },
+    {
+      "emoji": "💥",
+      "genre": "Fighting",
+      "id": "SmashBros",
+      "name": "Super Smash Bros. Ultimate",
+      "platforms": [
+        "Nintendo"
+      ],
+      "year": 2018
+    },
+    {
+      "emoji": "🎸",
+      "genre": "Fighting",
+      "id": "GuiltyGear",
+      "name": "Guilty Gear Strive",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2021
+    },
+    {
+      "emoji": "🐉",
+      "genre": "Fighting",
+      "id": "DBFighterZ",
+      "name": "Dragon Ball FighterZ",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2018
+    },
+    {
+      "emoji": "👻",
+      "genre": "Horror",
+      "id": "Phasmophobia",
+      "name": "Phasmophobia",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2020
+    },
+    {
+      "emoji": "🧟",
+      "genre": "Horror",
+      "id": "RE4",
+      "name": "Resident Evil 4",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2023
+    },
+    {
+      "emoji": "🔦",
+      "genre": "Horror",
+      "id": "Outlast",
+      "name": "Outlast",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2013
+    },
+    {
+      "emoji": "🐻",
+      "genre": "Horror",
+      "id": "FNAF",
+      "name": "Five Nights at Freddy's",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo",
+        "Mobile"
+      ],
+      "year": 2014
+    },
+    {
+      "emoji": "🏢",
+      "genre": "Horror",
+      "id": "LethalCompany",
+      "name": "Lethal Company",
+      "platforms": [
+        "Pc"
+      ],
+      "year": 2023
+    },
+    {
+      "emoji": "🧸",
+      "genre": "Horror",
+      "id": "PoppyPlaytime",
+      "name": "Poppy Playtime",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Mobile"
+      ],
+      "year": 2021
+    },
+    {
+      "emoji": "🩸",
+      "genre": "Horror",
+      "id": "DeadSpace",
+      "name": "Dead Space",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2008
+    },
+    {
+      "emoji": "👾",
+      "genre": "Horror",
+      "id": "AlienIsolation",
+      "name": "Alien: Isolation",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2014
+    },
+    {
+      "emoji": "🪲",
+      "genre": "Platformer",
+      "id": "HollowKnight",
+      "name": "Hollow Knight",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2017
+    },
+    {
+      "emoji": "⛰️",
+      "genre": "Platformer",
+      "id": "Celeste",
+      "name": "Celeste",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2018
+    },
+    {
+      "emoji": "🦉",
+      "genre": "Platformer",
+      "id": "Ori",
+      "name": "Ori and the Will of the Wisps",
+      "platforms": [
+        "Pc",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2020
+    },
+    {
+      "emoji": "☕",
+      "genre": "Platformer",
+      "id": "Cuphead",
+      "name": "Cuphead",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2017
+    },
+    {
+      "emoji": "🗡️",
+      "genre": "Platformer",
+      "id": "DeadCells",
+      "name": "Dead Cells",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo",
+        "Mobile"
+      ],
+      "year": 2018
+    },
+    {
+      "emoji": "🗺️",
+      "genre": "Platformer",
+      "id": "MinecraftDungeons",
+      "name": "Minecraft Dungeons",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "year": 2020
+    },
+    {
+      "emoji": "🌀",
+      "genre": "Other",
+      "id": "Portal2",
+      "name": "Portal 2",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2011
+    },
+    {
+      "emoji": "💛",
+      "genre": "Other",
+      "id": "Undertale",
+      "name": "Undertale",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Nintendo"
+      ],
+      "year": 2015
+    },
+    {
+      "emoji": "🗼",
+      "genre": "Other",
+      "id": "SlayTheSpire",
+      "name": "Slay the Spire",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo",
+        "Mobile"
+      ],
+      "year": 2019
+    },
+    {
+      "emoji": "🦇",
+      "genre": "Other",
+      "id": "VampireSurvivors",
+      "name": "Vampire Survivors",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo",
+        "Mobile"
+      ],
+      "year": 2022
+    },
+    {
+      "emoji": "🃏",
+      "genre": "Other",
+      "id": "Balatro",
+      "name": "Balatro",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox",
+        "Nintendo",
+        "Mobile"
+      ],
+      "year": 2024
+    },
+    {
+      "emoji": "🏜️",
+      "genre": "Other",
+      "id": "Journey",
+      "name": "Journey",
+      "platforms": [
+        "Pc",
+        "PlayStation"
+      ],
+      "year": 2012
+    },
+    {
+      "emoji": "🌪️",
+      "genre": "Other",
+      "id": "Naraka",
+      "name": "Naraka: Bladepoint",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2021
+    },
+    {
+      "emoji": "🗡️",
+      "genre": "Mmo",
+      "id": "FinalFantasy14",
+      "name": "Final Fantasy XIV",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2013
+    },
+    {
+      "emoji": "📜",
+      "genre": "Mmo",
+      "id": "ESO",
+      "name": "Elder Scrolls Online",
+      "platforms": [
+        "Pc",
+        "PlayStation",
+        "Xbox"
+      ],
+      "year": 2014
+    },
+    {
+      "emoji": "🗺️",
+      "genre": "Mmo",
+      "id": "NewWorld",
+      "name": "New World",
+      "platforms": [
+        "Pc"
+      ],
+      "year": 2021
+    },
+    {
+      "emoji": "🦁",
+      "genre": "Mmo",
+      "id": "GuildWars2",
+      "name": "Guild Wars 2",
+      "platforms": [
+        "Pc"
+      ],
+      "year": 2012
+    },
+    {
+      "emoji": "⚓",
+      "genre": "Mmo",
+      "id": "LostArk",
+      "name": "Lost Ark",
+      "platforms": [
+        "Pc"
+      ],
+      "year": 2022
+    },
+    {
+      "emoji": "🪙",
+      "genre": "Mmo",
+      "id": "RuneScape",
+      "name": "Old School RuneScape",
+      "platforms": [
+        "Pc",
+        "Mobile"
+      ],
+      "year": 2013
+    },
+    {
+      "emoji": "💬",
+      "genre": "Other",
+      "id": "Generic",
+      "name": "General Chat",
+      "platforms": [],
+      "year": 0
+    }
+  ],
+  "note": "CATALOG is the single source of truth for the picker/filters/names; Generic (General Chat) is the pseudo-game added by all_games()",
+  "source": "main.rs games_table! macro + CATALOG"
+}
